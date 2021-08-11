@@ -22,157 +22,175 @@ Partial Class frmHome
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmHome))
         Me.pnlSideMenu = New System.Windows.Forms.Panel()
-        Me.btnAccounting = New System.Windows.Forms.Button()
-        Me.btnInsurance = New System.Windows.Forms.Button()
-        Me.btnSavings = New System.Windows.Forms.Button()
-        Me.btnCustomer = New System.Windows.Forms.Button()
-        Me.btnLoan = New System.Windows.Forms.Button()
-        Me.btnDashboard = New System.Windows.Forms.Button()
+        Me.IconBtnAccounting = New FontAwesome.Sharp.IconButton()
+        Me.IconBtnInsurance = New FontAwesome.Sharp.IconButton()
+        Me.IconBtnSavings = New FontAwesome.Sharp.IconButton()
+        Me.IconBtnCustomers = New FontAwesome.Sharp.IconButton()
+        Me.IconBtnLoans = New FontAwesome.Sharp.IconButton()
+        Me.IconBtnDashboard = New FontAwesome.Sharp.IconButton()
         Me.pnlLogo = New System.Windows.Forms.Panel()
         Me.pnlCompanyName = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.picFormIcon = New System.Windows.Forms.PictureBox()
+        Me.lblCompanyName = New System.Windows.Forms.Label()
         Me.lblFormTitle = New System.Windows.Forms.Label()
         Me.pnlDesktop = New System.Windows.Forms.Panel()
         Me.pnlFormTitle = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.lblUser = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.IconFormTitle = New FontAwesome.Sharp.IconPictureBox()
         Me.pnlMenuContainer = New System.Windows.Forms.Panel()
+        Me.IconUser = New FontAwesome.Sharp.IconPictureBox()
         Me.pnlSideMenu.SuspendLayout()
         Me.pnlCompanyName.SuspendLayout()
-        CType(Me.picFormIcon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlFormTitle.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.IconFormTitle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMenuContainer.SuspendLayout()
+        CType(Me.IconUser, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlSideMenu
         '
         Me.pnlSideMenu.BackColor = System.Drawing.Color.Indigo
-        Me.pnlSideMenu.Controls.Add(Me.btnAccounting)
-        Me.pnlSideMenu.Controls.Add(Me.btnInsurance)
-        Me.pnlSideMenu.Controls.Add(Me.btnSavings)
-        Me.pnlSideMenu.Controls.Add(Me.btnCustomer)
-        Me.pnlSideMenu.Controls.Add(Me.btnLoan)
-        Me.pnlSideMenu.Controls.Add(Me.btnDashboard)
+        Me.pnlSideMenu.Controls.Add(Me.IconBtnAccounting)
+        Me.pnlSideMenu.Controls.Add(Me.IconBtnInsurance)
+        Me.pnlSideMenu.Controls.Add(Me.IconBtnSavings)
+        Me.pnlSideMenu.Controls.Add(Me.IconBtnCustomers)
+        Me.pnlSideMenu.Controls.Add(Me.IconBtnLoans)
+        Me.pnlSideMenu.Controls.Add(Me.IconBtnDashboard)
         Me.pnlSideMenu.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlSideMenu.Location = New System.Drawing.Point(0, 185)
+        Me.pnlSideMenu.Location = New System.Drawing.Point(0, 213)
         Me.pnlSideMenu.Name = "pnlSideMenu"
-        Me.pnlSideMenu.Size = New System.Drawing.Size(200, 332)
+        Me.pnlSideMenu.Size = New System.Drawing.Size(200, 304)
         Me.pnlSideMenu.TabIndex = 0
         '
-        'btnAccounting
+        'IconBtnAccounting
         '
-        Me.btnAccounting.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnAccounting.FlatAppearance.BorderSize = 0
-        Me.btnAccounting.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAccounting.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAccounting.ForeColor = System.Drawing.Color.White
-        Me.btnAccounting.Image = CType(resources.GetObject("btnAccounting.Image"), System.Drawing.Image)
-        Me.btnAccounting.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnAccounting.Location = New System.Drawing.Point(0, 250)
-        Me.btnAccounting.Name = "btnAccounting"
-        Me.btnAccounting.Padding = New System.Windows.Forms.Padding(15, 0, 0, 0)
-        Me.btnAccounting.Size = New System.Drawing.Size(200, 50)
-        Me.btnAccounting.TabIndex = 6
-        Me.btnAccounting.Text = "Accounting"
-        Me.btnAccounting.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnAccounting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnAccounting.UseVisualStyleBackColor = True
+        Me.IconBtnAccounting.Dock = System.Windows.Forms.DockStyle.Top
+        Me.IconBtnAccounting.FlatAppearance.BorderSize = 0
+        Me.IconBtnAccounting.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconBtnAccounting.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconBtnAccounting.ForeColor = System.Drawing.Color.White
+        Me.IconBtnAccounting.IconChar = FontAwesome.Sharp.IconChar.BalanceScale
+        Me.IconBtnAccounting.IconColor = System.Drawing.Color.White
+        Me.IconBtnAccounting.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconBtnAccounting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconBtnAccounting.Location = New System.Drawing.Point(0, 250)
+        Me.IconBtnAccounting.Name = "IconBtnAccounting"
+        Me.IconBtnAccounting.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.IconBtnAccounting.Size = New System.Drawing.Size(200, 50)
+        Me.IconBtnAccounting.TabIndex = 12
+        Me.IconBtnAccounting.Text = "Accounting"
+        Me.IconBtnAccounting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconBtnAccounting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconBtnAccounting.UseVisualStyleBackColor = True
         '
-        'btnInsurance
+        'IconBtnInsurance
         '
-        Me.btnInsurance.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnInsurance.FlatAppearance.BorderSize = 0
-        Me.btnInsurance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsurance.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnInsurance.ForeColor = System.Drawing.Color.White
-        Me.btnInsurance.Image = CType(resources.GetObject("btnInsurance.Image"), System.Drawing.Image)
-        Me.btnInsurance.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnInsurance.Location = New System.Drawing.Point(0, 200)
-        Me.btnInsurance.Name = "btnInsurance"
-        Me.btnInsurance.Padding = New System.Windows.Forms.Padding(15, 0, 0, 0)
-        Me.btnInsurance.Size = New System.Drawing.Size(200, 50)
-        Me.btnInsurance.TabIndex = 5
-        Me.btnInsurance.Text = "Insurance"
-        Me.btnInsurance.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnInsurance.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnInsurance.UseVisualStyleBackColor = True
+        Me.IconBtnInsurance.Dock = System.Windows.Forms.DockStyle.Top
+        Me.IconBtnInsurance.FlatAppearance.BorderSize = 0
+        Me.IconBtnInsurance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconBtnInsurance.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconBtnInsurance.ForeColor = System.Drawing.Color.White
+        Me.IconBtnInsurance.IconChar = FontAwesome.Sharp.IconChar.UserShield
+        Me.IconBtnInsurance.IconColor = System.Drawing.Color.White
+        Me.IconBtnInsurance.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconBtnInsurance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconBtnInsurance.Location = New System.Drawing.Point(0, 200)
+        Me.IconBtnInsurance.Name = "IconBtnInsurance"
+        Me.IconBtnInsurance.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.IconBtnInsurance.Size = New System.Drawing.Size(200, 50)
+        Me.IconBtnInsurance.TabIndex = 11
+        Me.IconBtnInsurance.Text = "Insurance"
+        Me.IconBtnInsurance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconBtnInsurance.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconBtnInsurance.UseVisualStyleBackColor = True
         '
-        'btnSavings
+        'IconBtnSavings
         '
-        Me.btnSavings.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnSavings.FlatAppearance.BorderSize = 0
-        Me.btnSavings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSavings.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSavings.ForeColor = System.Drawing.Color.White
-        Me.btnSavings.Image = CType(resources.GetObject("btnSavings.Image"), System.Drawing.Image)
-        Me.btnSavings.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnSavings.Location = New System.Drawing.Point(0, 150)
-        Me.btnSavings.Name = "btnSavings"
-        Me.btnSavings.Padding = New System.Windows.Forms.Padding(15, 0, 0, 0)
-        Me.btnSavings.Size = New System.Drawing.Size(200, 50)
-        Me.btnSavings.TabIndex = 4
-        Me.btnSavings.Text = "Savings"
-        Me.btnSavings.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnSavings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnSavings.UseVisualStyleBackColor = True
+        Me.IconBtnSavings.Dock = System.Windows.Forms.DockStyle.Top
+        Me.IconBtnSavings.FlatAppearance.BorderSize = 0
+        Me.IconBtnSavings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconBtnSavings.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconBtnSavings.ForeColor = System.Drawing.Color.White
+        Me.IconBtnSavings.IconChar = FontAwesome.Sharp.IconChar.University
+        Me.IconBtnSavings.IconColor = System.Drawing.Color.White
+        Me.IconBtnSavings.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconBtnSavings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconBtnSavings.Location = New System.Drawing.Point(0, 150)
+        Me.IconBtnSavings.Name = "IconBtnSavings"
+        Me.IconBtnSavings.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.IconBtnSavings.Size = New System.Drawing.Size(200, 50)
+        Me.IconBtnSavings.TabIndex = 10
+        Me.IconBtnSavings.Text = "Savings"
+        Me.IconBtnSavings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconBtnSavings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconBtnSavings.UseVisualStyleBackColor = True
         '
-        'btnCustomer
+        'IconBtnCustomers
         '
-        Me.btnCustomer.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnCustomer.FlatAppearance.BorderSize = 0
-        Me.btnCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCustomer.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCustomer.ForeColor = System.Drawing.Color.White
-        Me.btnCustomer.Image = CType(resources.GetObject("btnCustomer.Image"), System.Drawing.Image)
-        Me.btnCustomer.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnCustomer.Location = New System.Drawing.Point(0, 100)
-        Me.btnCustomer.Name = "btnCustomer"
-        Me.btnCustomer.Padding = New System.Windows.Forms.Padding(15, 0, 0, 0)
-        Me.btnCustomer.Size = New System.Drawing.Size(200, 50)
-        Me.btnCustomer.TabIndex = 3
-        Me.btnCustomer.Text = "Customer"
-        Me.btnCustomer.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnCustomer.UseVisualStyleBackColor = True
+        Me.IconBtnCustomers.Dock = System.Windows.Forms.DockStyle.Top
+        Me.IconBtnCustomers.FlatAppearance.BorderSize = 0
+        Me.IconBtnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconBtnCustomers.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconBtnCustomers.ForeColor = System.Drawing.Color.White
+        Me.IconBtnCustomers.IconChar = FontAwesome.Sharp.IconChar.UserFriends
+        Me.IconBtnCustomers.IconColor = System.Drawing.Color.White
+        Me.IconBtnCustomers.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconBtnCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconBtnCustomers.Location = New System.Drawing.Point(0, 100)
+        Me.IconBtnCustomers.Name = "IconBtnCustomers"
+        Me.IconBtnCustomers.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.IconBtnCustomers.Size = New System.Drawing.Size(200, 50)
+        Me.IconBtnCustomers.TabIndex = 9
+        Me.IconBtnCustomers.Text = "Customers"
+        Me.IconBtnCustomers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconBtnCustomers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconBtnCustomers.UseVisualStyleBackColor = True
         '
-        'btnLoan
+        'IconBtnLoans
         '
-        Me.btnLoan.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnLoan.FlatAppearance.BorderSize = 0
-        Me.btnLoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLoan.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLoan.ForeColor = System.Drawing.Color.White
-        Me.btnLoan.Image = CType(resources.GetObject("btnLoan.Image"), System.Drawing.Image)
-        Me.btnLoan.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnLoan.Location = New System.Drawing.Point(0, 50)
-        Me.btnLoan.Name = "btnLoan"
-        Me.btnLoan.Padding = New System.Windows.Forms.Padding(15, 0, 0, 0)
-        Me.btnLoan.Size = New System.Drawing.Size(200, 50)
-        Me.btnLoan.TabIndex = 2
-        Me.btnLoan.Text = "Loan"
-        Me.btnLoan.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnLoan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnLoan.UseVisualStyleBackColor = True
+        Me.IconBtnLoans.Dock = System.Windows.Forms.DockStyle.Top
+        Me.IconBtnLoans.FlatAppearance.BorderSize = 0
+        Me.IconBtnLoans.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconBtnLoans.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconBtnLoans.ForeColor = System.Drawing.Color.White
+        Me.IconBtnLoans.IconChar = FontAwesome.Sharp.IconChar.MoneyBillWaveAlt
+        Me.IconBtnLoans.IconColor = System.Drawing.Color.White
+        Me.IconBtnLoans.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconBtnLoans.IconSize = 53
+        Me.IconBtnLoans.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconBtnLoans.Location = New System.Drawing.Point(0, 50)
+        Me.IconBtnLoans.Name = "IconBtnLoans"
+        Me.IconBtnLoans.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.IconBtnLoans.Size = New System.Drawing.Size(200, 50)
+        Me.IconBtnLoans.TabIndex = 8
+        Me.IconBtnLoans.Text = "Loans"
+        Me.IconBtnLoans.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconBtnLoans.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconBtnLoans.UseVisualStyleBackColor = True
         '
-        'btnDashboard
+        'IconBtnDashboard
         '
-        Me.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnDashboard.FlatAppearance.BorderSize = 0
-        Me.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDashboard.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDashboard.ForeColor = System.Drawing.Color.White
-        Me.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnDashboard.Location = New System.Drawing.Point(0, 0)
-        Me.btnDashboard.Margin = New System.Windows.Forms.Padding(0, 3, 3, 3)
-        Me.btnDashboard.Name = "btnDashboard"
-        Me.btnDashboard.Padding = New System.Windows.Forms.Padding(15, 0, 0, 0)
-        Me.btnDashboard.Size = New System.Drawing.Size(200, 50)
-        Me.btnDashboard.TabIndex = 1
-        Me.btnDashboard.Text = "Dashboard"
-        Me.btnDashboard.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnDashboard.UseVisualStyleBackColor = True
+        Me.IconBtnDashboard.Dock = System.Windows.Forms.DockStyle.Top
+        Me.IconBtnDashboard.FlatAppearance.BorderSize = 0
+        Me.IconBtnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconBtnDashboard.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconBtnDashboard.ForeColor = System.Drawing.Color.White
+        Me.IconBtnDashboard.IconChar = FontAwesome.Sharp.IconChar.Deezer
+        Me.IconBtnDashboard.IconColor = System.Drawing.Color.White
+        Me.IconBtnDashboard.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconBtnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconBtnDashboard.Location = New System.Drawing.Point(0, 0)
+        Me.IconBtnDashboard.Name = "IconBtnDashboard"
+        Me.IconBtnDashboard.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.IconBtnDashboard.Size = New System.Drawing.Size(200, 50)
+        Me.IconBtnDashboard.TabIndex = 7
+        Me.IconBtnDashboard.Text = "Dashboard"
+        Me.IconBtnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconBtnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconBtnDashboard.UseVisualStyleBackColor = True
         '
         'pnlLogo
         '
@@ -180,46 +198,38 @@ Partial Class frmHome
         Me.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlLogo.Location = New System.Drawing.Point(0, 0)
         Me.pnlLogo.Name = "pnlLogo"
-        Me.pnlLogo.Size = New System.Drawing.Size(200, 185)
+        Me.pnlLogo.Size = New System.Drawing.Size(200, 213)
         Me.pnlLogo.TabIndex = 0
         '
         'pnlCompanyName
         '
         Me.pnlCompanyName.BackColor = System.Drawing.Color.Indigo
-        Me.pnlCompanyName.Controls.Add(Me.Label1)
+        Me.pnlCompanyName.Controls.Add(Me.lblCompanyName)
         Me.pnlCompanyName.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlCompanyName.Location = New System.Drawing.Point(200, 0)
         Me.pnlCompanyName.Name = "pnlCompanyName"
-        Me.pnlCompanyName.Size = New System.Drawing.Size(684, 75)
+        Me.pnlCompanyName.Size = New System.Drawing.Size(684, 68)
         Me.pnlCompanyName.TabIndex = 1
         '
-        'Label1
+        'lblCompanyName
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(10, 34)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(153, 25)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "New Malayan"
-        '
-        'picFormIcon
-        '
-        Me.picFormIcon.Location = New System.Drawing.Point(14, 9)
-        Me.picFormIcon.Name = "picFormIcon"
-        Me.picFormIcon.Size = New System.Drawing.Size(32, 29)
-        Me.picFormIcon.TabIndex = 1
-        Me.picFormIcon.TabStop = False
+        Me.lblCompanyName.AutoSize = True
+        Me.lblCompanyName.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCompanyName.ForeColor = System.Drawing.Color.White
+        Me.lblCompanyName.Location = New System.Drawing.Point(6, 20)
+        Me.lblCompanyName.Name = "lblCompanyName"
+        Me.lblCompanyName.Size = New System.Drawing.Size(256, 42)
+        Me.lblCompanyName.TabIndex = 0
+        Me.lblCompanyName.Text = "New Malayan"
         '
         'lblFormTitle
         '
         Me.lblFormTitle.AutoSize = True
-        Me.lblFormTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFormTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFormTitle.ForeColor = System.Drawing.Color.White
-        Me.lblFormTitle.Location = New System.Drawing.Point(52, 14)
+        Me.lblFormTitle.Location = New System.Drawing.Point(45, 18)
         Me.lblFormTitle.Name = "lblFormTitle"
-        Me.lblFormTitle.Size = New System.Drawing.Size(89, 20)
+        Me.lblFormTitle.Size = New System.Drawing.Size(105, 24)
         Me.lblFormTitle.TabIndex = 0
         Me.lblFormTitle.Text = "Form Title"
         '
@@ -227,21 +237,80 @@ Partial Class frmHome
         '
         Me.pnlDesktop.BackColor = System.Drawing.Color.White
         Me.pnlDesktop.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlDesktop.Location = New System.Drawing.Point(200, 125)
+        Me.pnlDesktop.Location = New System.Drawing.Point(200, 118)
         Me.pnlDesktop.Name = "pnlDesktop"
-        Me.pnlDesktop.Size = New System.Drawing.Size(684, 392)
+        Me.pnlDesktop.Size = New System.Drawing.Size(684, 399)
         Me.pnlDesktop.TabIndex = 2
         '
         'pnlFormTitle
         '
         Me.pnlFormTitle.BackColor = System.Drawing.Color.Indigo
-        Me.pnlFormTitle.Controls.Add(Me.picFormIcon)
+        Me.pnlFormTitle.Controls.Add(Me.TableLayoutPanel1)
+        Me.pnlFormTitle.Controls.Add(Me.Label1)
+        Me.pnlFormTitle.Controls.Add(Me.IconFormTitle)
         Me.pnlFormTitle.Controls.Add(Me.lblFormTitle)
         Me.pnlFormTitle.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlFormTitle.Location = New System.Drawing.Point(200, 75)
+        Me.pnlFormTitle.Location = New System.Drawing.Point(200, 68)
         Me.pnlFormTitle.Name = "pnlFormTitle"
         Me.pnlFormTitle.Size = New System.Drawing.Size(684, 50)
         Me.pnlFormTitle.TabIndex = 0
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 4
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.Controls.Add(Me.IconUser, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.lblUser, 3, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(504, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(180, 50)
+        Me.TableLayoutPanel1.TabIndex = 0
+        '
+        'lblUser
+        '
+        Me.lblUser.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.lblUser.AutoSize = True
+        Me.lblUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUser.ForeColor = System.Drawing.Color.White
+        Me.lblUser.Location = New System.Drawing.Point(124, 13)
+        Me.lblUser.Name = "lblUser"
+        Me.lblUser.Size = New System.Drawing.Size(53, 24)
+        Me.lblUser.TabIndex = 0
+        Me.lblUser.Text = "User"
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(791, 18)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(53, 24)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "User"
+        '
+        'IconFormTitle
+        '
+        Me.IconFormTitle.BackColor = System.Drawing.Color.Indigo
+        Me.IconFormTitle.IconChar = FontAwesome.Sharp.IconChar.Database
+        Me.IconFormTitle.IconColor = System.Drawing.Color.White
+        Me.IconFormTitle.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconFormTitle.IconSize = 44
+        Me.IconFormTitle.ImageLocation = ""
+        Me.IconFormTitle.Location = New System.Drawing.Point(0, 6)
+        Me.IconFormTitle.Margin = New System.Windows.Forms.Padding(0)
+        Me.IconFormTitle.Name = "IconFormTitle"
+        Me.IconFormTitle.Size = New System.Drawing.Size(48, 44)
+        Me.IconFormTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.IconFormTitle.TabIndex = 1
+        Me.IconFormTitle.TabStop = False
         '
         'pnlMenuContainer
         '
@@ -252,6 +321,24 @@ Partial Class frmHome
         Me.pnlMenuContainer.Name = "pnlMenuContainer"
         Me.pnlMenuContainer.Size = New System.Drawing.Size(200, 517)
         Me.pnlMenuContainer.TabIndex = 3
+        '
+        'IconUser
+        '
+        Me.IconUser.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.IconUser.BackColor = System.Drawing.Color.Indigo
+        Me.IconUser.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal
+        Me.IconUser.IconChar = FontAwesome.Sharp.IconChar.UserCircle
+        Me.IconUser.IconColor = System.Drawing.Color.White
+        Me.IconUser.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconUser.IconSize = 44
+        Me.IconUser.ImageLocation = ""
+        Me.IconUser.Location = New System.Drawing.Point(0, 3)
+        Me.IconUser.Margin = New System.Windows.Forms.Padding(0)
+        Me.IconUser.Name = "IconUser"
+        Me.IconUser.Size = New System.Drawing.Size(48, 44)
+        Me.IconUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.IconUser.TabIndex = 1
+        Me.IconUser.TabStop = False
         '
         'frmHome
         '
@@ -267,27 +354,34 @@ Partial Class frmHome
         Me.pnlSideMenu.ResumeLayout(False)
         Me.pnlCompanyName.ResumeLayout(False)
         Me.pnlCompanyName.PerformLayout()
-        CType(Me.picFormIcon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlFormTitle.ResumeLayout(False)
         Me.pnlFormTitle.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.IconFormTitle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMenuContainer.ResumeLayout(False)
+        CType(Me.IconUser, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents pnlSideMenu As Panel
-    Friend WithEvents btnAccounting As Button
-    Friend WithEvents btnInsurance As Button
-    Friend WithEvents btnSavings As Button
-    Friend WithEvents btnCustomer As Button
-    Friend WithEvents btnLoan As Button
-    Friend WithEvents btnDashboard As Button
     Friend WithEvents pnlLogo As Panel
     Friend WithEvents pnlCompanyName As Panel
     Friend WithEvents pnlDesktop As Panel
     Friend WithEvents lblFormTitle As Label
-    Friend WithEvents picFormIcon As PictureBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblCompanyName As Label
     Friend WithEvents pnlFormTitle As Panel
     Friend WithEvents pnlMenuContainer As Panel
+    Friend WithEvents IconBtnDashboard As FontAwesome.Sharp.IconButton
+    Friend WithEvents IconBtnAccounting As FontAwesome.Sharp.IconButton
+    Friend WithEvents IconBtnInsurance As FontAwesome.Sharp.IconButton
+    Friend WithEvents IconBtnSavings As FontAwesome.Sharp.IconButton
+    Friend WithEvents IconBtnCustomers As FontAwesome.Sharp.IconButton
+    Friend WithEvents IconBtnLoans As FontAwesome.Sharp.IconButton
+    Friend WithEvents IconFormTitle As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents lblUser As Label
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents IconUser As FontAwesome.Sharp.IconPictureBox
 End Class
