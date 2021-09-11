@@ -98,12 +98,12 @@ Public Class frmHome
     End Sub
 
     Private Sub IconBtnLoans_Click(sender As Object, e As EventArgs) Handles IconBtnLoans.Click
-        OpenChildForm(New frmLoanAdd)
+        OpenChildForm(New frmLoans)
         ActivateButton(sender)
     End Sub
 
     Private Sub IconBtnSavings_Click(sender As Object, e As EventArgs) Handles IconBtnSavings.Click
-        OpenChildForm(New frmSavings)
+        OpenChildForm(New frmLoanAdd)
         ActivateButton(sender)
     End Sub
 

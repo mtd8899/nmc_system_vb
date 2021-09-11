@@ -22,17 +22,32 @@ Partial Class frmLoans
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.tabLoans = New System.Windows.Forms.TabControl()
         Me.tabViewLoans = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.tabAddLoan = New System.Windows.Forms.TabPage()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.NewMalayan1DataSet = New nmc_system_vb.NewMalayan1DataSet()
+        Me.TblLoanReleaseBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TblLoanReleaseTableAdapter = New nmc_system_vb.NewMalayan1DataSetTableAdapters.tblLoanReleaseTableAdapter()
+        Me.LoanAccNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CustIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateReleaseDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrincipalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.InterestDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProcFeeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TermsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LoanTypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MaturityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tabLoans.SuspendLayout()
         Me.tabViewLoans.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabAddLoan.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NewMalayan1DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblLoanReleaseBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tabLoans
@@ -63,7 +78,10 @@ Partial Class frmLoans
         Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LoanAccNoDataGridViewTextBoxColumn, Me.CustIDDataGridViewTextBoxColumn, Me.DateReleaseDataGridViewTextBoxColumn, Me.PrincipalDataGridViewTextBoxColumn, Me.InterestDataGridViewTextBoxColumn, Me.ProcFeeDataGridViewTextBoxColumn, Me.TermsDataGridViewTextBoxColumn, Me.LoanTypeDataGridViewTextBoxColumn, Me.MaturityDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.TblLoanReleaseBindingSource
         Me.DataGridView1.Location = New System.Drawing.Point(8, 70)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(934, 387)
@@ -99,6 +117,74 @@ Partial Class frmLoans
         Me.TabPage3.Text = "Loan "
         Me.TabPage3.UseVisualStyleBackColor = True
         '
+        'NewMalayan1DataSet
+        '
+        Me.NewMalayan1DataSet.DataSetName = "NewMalayan1DataSet"
+        Me.NewMalayan1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TblLoanReleaseBindingSource
+        '
+        Me.TblLoanReleaseBindingSource.DataMember = "tblLoanRelease"
+        Me.TblLoanReleaseBindingSource.DataSource = Me.NewMalayan1DataSet
+        '
+        'TblLoanReleaseTableAdapter
+        '
+        Me.TblLoanReleaseTableAdapter.ClearBeforeFill = True
+        '
+        'LoanAccNoDataGridViewTextBoxColumn
+        '
+        Me.LoanAccNoDataGridViewTextBoxColumn.DataPropertyName = "LoanAccNo"
+        Me.LoanAccNoDataGridViewTextBoxColumn.HeaderText = "LoanAccNo"
+        Me.LoanAccNoDataGridViewTextBoxColumn.Name = "LoanAccNoDataGridViewTextBoxColumn"
+        '
+        'CustIDDataGridViewTextBoxColumn
+        '
+        Me.CustIDDataGridViewTextBoxColumn.DataPropertyName = "CustID"
+        Me.CustIDDataGridViewTextBoxColumn.HeaderText = "CustID"
+        Me.CustIDDataGridViewTextBoxColumn.Name = "CustIDDataGridViewTextBoxColumn"
+        '
+        'DateReleaseDataGridViewTextBoxColumn
+        '
+        Me.DateReleaseDataGridViewTextBoxColumn.DataPropertyName = "DateRelease"
+        Me.DateReleaseDataGridViewTextBoxColumn.HeaderText = "DateRelease"
+        Me.DateReleaseDataGridViewTextBoxColumn.Name = "DateReleaseDataGridViewTextBoxColumn"
+        '
+        'PrincipalDataGridViewTextBoxColumn
+        '
+        Me.PrincipalDataGridViewTextBoxColumn.DataPropertyName = "Principal"
+        Me.PrincipalDataGridViewTextBoxColumn.HeaderText = "Principal"
+        Me.PrincipalDataGridViewTextBoxColumn.Name = "PrincipalDataGridViewTextBoxColumn"
+        '
+        'InterestDataGridViewTextBoxColumn
+        '
+        Me.InterestDataGridViewTextBoxColumn.DataPropertyName = "Interest"
+        Me.InterestDataGridViewTextBoxColumn.HeaderText = "Interest"
+        Me.InterestDataGridViewTextBoxColumn.Name = "InterestDataGridViewTextBoxColumn"
+        '
+        'ProcFeeDataGridViewTextBoxColumn
+        '
+        Me.ProcFeeDataGridViewTextBoxColumn.DataPropertyName = "ProcFee"
+        Me.ProcFeeDataGridViewTextBoxColumn.HeaderText = "ProcFee"
+        Me.ProcFeeDataGridViewTextBoxColumn.Name = "ProcFeeDataGridViewTextBoxColumn"
+        '
+        'TermsDataGridViewTextBoxColumn
+        '
+        Me.TermsDataGridViewTextBoxColumn.DataPropertyName = "Terms"
+        Me.TermsDataGridViewTextBoxColumn.HeaderText = "Terms"
+        Me.TermsDataGridViewTextBoxColumn.Name = "TermsDataGridViewTextBoxColumn"
+        '
+        'LoanTypeDataGridViewTextBoxColumn
+        '
+        Me.LoanTypeDataGridViewTextBoxColumn.DataPropertyName = "LoanType"
+        Me.LoanTypeDataGridViewTextBoxColumn.HeaderText = "LoanType"
+        Me.LoanTypeDataGridViewTextBoxColumn.Name = "LoanTypeDataGridViewTextBoxColumn"
+        '
+        'MaturityDataGridViewTextBoxColumn
+        '
+        Me.MaturityDataGridViewTextBoxColumn.DataPropertyName = "Maturity"
+        Me.MaturityDataGridViewTextBoxColumn.HeaderText = "Maturity"
+        Me.MaturityDataGridViewTextBoxColumn.Name = "MaturityDataGridViewTextBoxColumn"
+        '
         'frmLoans
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -112,6 +198,8 @@ Partial Class frmLoans
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabAddLoan.ResumeLayout(False)
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NewMalayan1DataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblLoanReleaseBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -122,4 +210,16 @@ Partial Class frmLoans
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents NewMalayan1DataSet As NewMalayan1DataSet
+    Friend WithEvents TblLoanReleaseBindingSource As BindingSource
+    Friend WithEvents TblLoanReleaseTableAdapter As NewMalayan1DataSetTableAdapters.tblLoanReleaseTableAdapter
+    Friend WithEvents LoanAccNoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CustIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DateReleaseDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PrincipalDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents InterestDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ProcFeeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TermsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents LoanTypeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MaturityDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

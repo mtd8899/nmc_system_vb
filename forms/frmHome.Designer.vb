@@ -22,6 +22,7 @@ Partial Class frmHome
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.pnlSideMenu = New System.Windows.Forms.Panel()
         Me.IconBtnAccounting = New FontAwesome.Sharp.IconButton()
         Me.IconBtnInsurance = New FontAwesome.Sharp.IconButton()
@@ -36,18 +37,19 @@ Partial Class frmHome
         Me.pnlDesktop = New System.Windows.Forms.Panel()
         Me.pnlFormTitle = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.IconUser = New FontAwesome.Sharp.IconPictureBox()
         Me.lblUser = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.IconFormTitle = New FontAwesome.Sharp.IconPictureBox()
         Me.pnlMenuContainer = New System.Windows.Forms.Panel()
-        Me.IconUser = New FontAwesome.Sharp.IconPictureBox()
+        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.pnlSideMenu.SuspendLayout()
         Me.pnlCompanyName.SuspendLayout()
         Me.pnlFormTitle.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.IconUser, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IconFormTitle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMenuContainer.SuspendLayout()
-        CType(Me.IconUser, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlSideMenu
@@ -272,6 +274,24 @@ Partial Class frmHome
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(180, 50)
         Me.TableLayoutPanel1.TabIndex = 0
         '
+        'IconUser
+        '
+        Me.IconUser.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.IconUser.BackColor = System.Drawing.Color.Indigo
+        Me.IconUser.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal
+        Me.IconUser.IconChar = FontAwesome.Sharp.IconChar.UserCircle
+        Me.IconUser.IconColor = System.Drawing.Color.White
+        Me.IconUser.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconUser.IconSize = 44
+        Me.IconUser.ImageLocation = ""
+        Me.IconUser.Location = New System.Drawing.Point(0, 3)
+        Me.IconUser.Margin = New System.Windows.Forms.Padding(0)
+        Me.IconUser.Name = "IconUser"
+        Me.IconUser.Size = New System.Drawing.Size(48, 44)
+        Me.IconUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.IconUser.TabIndex = 1
+        Me.IconUser.TabStop = False
+        '
         'lblUser
         '
         Me.lblUser.Anchor = System.Windows.Forms.AnchorStyles.Right
@@ -322,23 +342,10 @@ Partial Class frmHome
         Me.pnlMenuContainer.Size = New System.Drawing.Size(200, 517)
         Me.pnlMenuContainer.TabIndex = 3
         '
-        'IconUser
+        'NotifyIcon1
         '
-        Me.IconUser.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.IconUser.BackColor = System.Drawing.Color.Indigo
-        Me.IconUser.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal
-        Me.IconUser.IconChar = FontAwesome.Sharp.IconChar.UserCircle
-        Me.IconUser.IconColor = System.Drawing.Color.White
-        Me.IconUser.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconUser.IconSize = 44
-        Me.IconUser.ImageLocation = ""
-        Me.IconUser.Location = New System.Drawing.Point(0, 3)
-        Me.IconUser.Margin = New System.Windows.Forms.Padding(0)
-        Me.IconUser.Name = "IconUser"
-        Me.IconUser.Size = New System.Drawing.Size(48, 44)
-        Me.IconUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.IconUser.TabIndex = 1
-        Me.IconUser.TabStop = False
+        Me.NotifyIcon1.Text = "NotifyIcon1"
+        Me.NotifyIcon1.Visible = True
         '
         'frmHome
         '
@@ -358,9 +365,9 @@ Partial Class frmHome
         Me.pnlFormTitle.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.IconUser, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IconFormTitle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMenuContainer.ResumeLayout(False)
-        CType(Me.IconUser, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -384,4 +391,5 @@ Partial Class frmHome
     Friend WithEvents lblUser As Label
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents IconUser As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents NotifyIcon1 As NotifyIcon
 End Class

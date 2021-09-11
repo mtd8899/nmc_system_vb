@@ -24,6 +24,7 @@ Partial Class frmLoanAdd
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnShowAmort = New System.Windows.Forms.Button()
         Me.btnLoanAdd = New System.Windows.Forms.Button()
         Me.txtProcFee = New System.Windows.Forms.TextBox()
         Me.txtCycleNo = New System.Windows.Forms.TextBox()
@@ -31,7 +32,7 @@ Partial Class frmLoanAdd
         Me.txtPrincipal = New System.Windows.Forms.TextBox()
         Me.txtDateRel = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.lstAmortTable = New System.Windows.Forms.ListBox()
         Me.lblDateRel = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.lblPrincipal = New System.Windows.Forms.Label()
@@ -66,7 +67,6 @@ Partial Class frmLoanAdd
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -75,11 +75,15 @@ Partial Class frmLoanAdd
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1022, 501)
+        Me.Panel1.Size = New System.Drawing.Size(1152, 501)
         Me.Panel1.TabIndex = 0
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.btnShowAmort)
         Me.GroupBox1.Controls.Add(Me.btnLoanAdd)
         Me.GroupBox1.Controls.Add(Me.txtProcFee)
         Me.GroupBox1.Controls.Add(Me.txtCycleNo)
@@ -101,10 +105,19 @@ Partial Class frmLoanAdd
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(998, 477)
+        Me.GroupBox1.Size = New System.Drawing.Size(1128, 477)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "GroupBox1"
+        '
+        'btnShowAmort
+        '
+        Me.btnShowAmort.Location = New System.Drawing.Point(9, 418)
+        Me.btnShowAmort.Name = "btnShowAmort"
+        Me.btnShowAmort.Size = New System.Drawing.Size(159, 47)
+        Me.btnShowAmort.TabIndex = 8
+        Me.btnShowAmort.Text = "ShowAmort"
+        Me.btnShowAmort.UseVisualStyleBackColor = True
         '
         'btnLoanAdd
         '
@@ -119,40 +132,43 @@ Partial Class frmLoanAdd
         '
         Me.txtProcFee.Location = New System.Drawing.Point(193, 210)
         Me.txtProcFee.Name = "txtProcFee"
-        Me.txtProcFee.Size = New System.Drawing.Size(159, 31)
+        Me.txtProcFee.Size = New System.Drawing.Size(242, 31)
         Me.txtProcFee.TabIndex = 4
         '
         'txtCycleNo
         '
         Me.txtCycleNo.Location = New System.Drawing.Point(193, 335)
         Me.txtCycleNo.Name = "txtCycleNo"
-        Me.txtCycleNo.Size = New System.Drawing.Size(159, 31)
+        Me.txtCycleNo.Size = New System.Drawing.Size(242, 31)
         Me.txtCycleNo.TabIndex = 7
         '
         'txtInterest
         '
         Me.txtInterest.Location = New System.Drawing.Point(193, 167)
         Me.txtInterest.Name = "txtInterest"
-        Me.txtInterest.Size = New System.Drawing.Size(159, 31)
+        Me.txtInterest.Size = New System.Drawing.Size(242, 31)
         Me.txtInterest.TabIndex = 3
         '
         'txtPrincipal
         '
         Me.txtPrincipal.Location = New System.Drawing.Point(193, 121)
         Me.txtPrincipal.Name = "txtPrincipal"
-        Me.txtPrincipal.Size = New System.Drawing.Size(159, 31)
+        Me.txtPrincipal.Size = New System.Drawing.Size(242, 31)
         Me.txtPrincipal.TabIndex = 2
         '
         'txtDateRel
         '
         Me.txtDateRel.Location = New System.Drawing.Point(193, 78)
         Me.txtDateRel.Name = "txtDateRel"
-        Me.txtDateRel.Size = New System.Drawing.Size(159, 31)
+        Me.txtDateRel.Size = New System.Drawing.Size(242, 31)
         Me.txtDateRel.TabIndex = 1
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.DataGridView1)
+        Me.Panel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.Controls.Add(Me.lstAmortTable)
         Me.Panel2.Controls.Add(Me.lblDateRel)
         Me.Panel2.Controls.Add(Me.Label22)
         Me.Panel2.Controls.Add(Me.lblPrincipal)
@@ -174,23 +190,27 @@ Partial Class frmLoanAdd
         Me.Panel2.Controls.Add(Me.lblLoanAcc)
         Me.Panel2.Controls.Add(Me.Label10)
         Me.Panel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel2.Location = New System.Drawing.Point(369, 30)
+        Me.Panel2.Location = New System.Drawing.Point(454, 30)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(629, 438)
+        Me.Panel2.Size = New System.Drawing.Size(668, 438)
         Me.Panel2.TabIndex = 3
         '
-        'DataGridView1
+        'lstAmortTable
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(18, 144)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(594, 291)
-        Me.DataGridView1.TabIndex = 2
+        Me.lstAmortTable.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lstAmortTable.FormattingEnabled = True
+        Me.lstAmortTable.ItemHeight = 25
+        Me.lstAmortTable.Location = New System.Drawing.Point(18, 172)
+        Me.lstAmortTable.Name = "lstAmortTable"
+        Me.lstAmortTable.Size = New System.Drawing.Size(633, 254)
+        Me.lstAmortTable.TabIndex = 3
         '
         'lblDateRel
         '
         Me.lblDateRel.AutoSize = True
-        Me.lblDateRel.Location = New System.Drawing.Point(496, 8)
+        Me.lblDateRel.Location = New System.Drawing.Point(519, 8)
         Me.lblDateRel.Name = "lblDateRel"
         Me.lblDateRel.Size = New System.Drawing.Size(89, 25)
         Me.lblDateRel.TabIndex = 1
@@ -199,7 +219,7 @@ Partial Class frmLoanAdd
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(404, 8)
+        Me.Label22.Location = New System.Drawing.Point(427, 8)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(91, 25)
         Me.Label22.TabIndex = 1
@@ -271,7 +291,7 @@ Partial Class frmLoanAdd
         'lblMaturity
         '
         Me.lblMaturity.AutoSize = True
-        Me.lblMaturity.Location = New System.Drawing.Point(502, 35)
+        Me.lblMaturity.Location = New System.Drawing.Point(525, 35)
         Me.lblMaturity.Name = "lblMaturity"
         Me.lblMaturity.Size = New System.Drawing.Size(89, 25)
         Me.lblMaturity.TabIndex = 1
@@ -280,7 +300,7 @@ Partial Class frmLoanAdd
         'lblCycle
         '
         Me.lblCycle.AutoSize = True
-        Me.lblCycle.Location = New System.Drawing.Point(502, 116)
+        Me.lblCycle.Location = New System.Drawing.Point(525, 116)
         Me.lblCycle.Name = "lblCycle"
         Me.lblCycle.Size = New System.Drawing.Size(66, 25)
         Me.lblCycle.TabIndex = 1
@@ -289,7 +309,7 @@ Partial Class frmLoanAdd
         'lblType
         '
         Me.lblType.AutoSize = True
-        Me.lblType.Location = New System.Drawing.Point(502, 89)
+        Me.lblType.Location = New System.Drawing.Point(525, 89)
         Me.lblType.Name = "lblType"
         Me.lblType.Size = New System.Drawing.Size(60, 25)
         Me.lblType.TabIndex = 1
@@ -298,7 +318,7 @@ Partial Class frmLoanAdd
         'lblInteresst
         '
         Me.lblInteresst.AutoSize = True
-        Me.lblInteresst.Location = New System.Drawing.Point(502, 62)
+        Me.lblInteresst.Location = New System.Drawing.Point(525, 62)
         Me.lblInteresst.Name = "lblInteresst"
         Me.lblInteresst.Size = New System.Drawing.Size(83, 25)
         Me.lblInteresst.TabIndex = 1
@@ -307,7 +327,7 @@ Partial Class frmLoanAdd
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(404, 116)
+        Me.Label19.Location = New System.Drawing.Point(427, 116)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(66, 25)
         Me.Label19.TabIndex = 1
@@ -325,7 +345,7 @@ Partial Class frmLoanAdd
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(404, 89)
+        Me.Label13.Location = New System.Drawing.Point(427, 89)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(60, 25)
         Me.Label13.TabIndex = 1
@@ -334,7 +354,7 @@ Partial Class frmLoanAdd
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(404, 35)
+        Me.Label11.Location = New System.Drawing.Point(427, 35)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(89, 25)
         Me.Label11.TabIndex = 1
@@ -343,7 +363,7 @@ Partial Class frmLoanAdd
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(404, 62)
+        Me.Label16.Location = New System.Drawing.Point(427, 62)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(83, 25)
         Me.Label16.TabIndex = 1
@@ -444,18 +464,18 @@ Partial Class frmLoanAdd
         Me.cboLoanType.Items.AddRange(New Object() {"Personal Loan", "Business Loan"})
         Me.cboLoanType.Location = New System.Drawing.Point(193, 296)
         Me.cboLoanType.Name = "cboLoanType"
-        Me.cboLoanType.Size = New System.Drawing.Size(159, 33)
+        Me.cboLoanType.Size = New System.Drawing.Size(242, 33)
         Me.cboLoanType.TabIndex = 6
         '
         'cboTerms
         '
         Me.cboTerms.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboTerms.FormattingEnabled = True
-        Me.cboTerms.Items.AddRange(New Object() {"25", "16"})
         Me.cboTerms.Location = New System.Drawing.Point(193, 253)
         Me.cboTerms.Name = "cboTerms"
-        Me.cboTerms.Size = New System.Drawing.Size(159, 33)
+        Me.cboTerms.Size = New System.Drawing.Size(242, 33)
         Me.cboTerms.TabIndex = 5
+        Me.cboTerms.ValueMember = "CustID"
         '
         'cboCustName
         '
@@ -463,7 +483,7 @@ Partial Class frmLoanAdd
         Me.cboCustName.FormattingEnabled = True
         Me.cboCustName.Location = New System.Drawing.Point(193, 30)
         Me.cboCustName.Name = "cboCustName"
-        Me.cboCustName.Size = New System.Drawing.Size(159, 33)
+        Me.cboCustName.Size = New System.Drawing.Size(242, 33)
         Me.cboCustName.TabIndex = 0
         '
         'Label1
@@ -480,7 +500,7 @@ Partial Class frmLoanAdd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1022, 501)
+        Me.ClientSize = New System.Drawing.Size(1152, 501)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frmLoanAdd"
         Me.Text = "Loan Cycle"
@@ -489,7 +509,6 @@ Partial Class frmLoanAdd
         Me.GroupBox1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -523,7 +542,6 @@ Partial Class frmLoanAdd
     Friend WithEvents Label17 As Label
     Friend WithEvents lblType As Label
     Friend WithEvents Label13 As Label
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents lblCycle As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents btnLoanAdd As Button
@@ -535,4 +553,6 @@ Partial Class frmLoanAdd
     Friend WithEvents cboTerms As ComboBox
     Friend WithEvents txtCycleNo As TextBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents btnShowAmort As Button
+    Friend WithEvents lstAmortTable As ListBox
 End Class

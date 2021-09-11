@@ -51,9 +51,9 @@ Partial Public Class NewMalayan1DataSet
     
     Private relationtblCust_tblInsurance As Global.System.Data.DataRelation
     
-    Private relationtblCust_tblLoanRel As Global.System.Data.DataRelation
-    
     Private relationtblCust_tblSavAcc As Global.System.Data.DataRelation
+    
+    Private relationtblCust_tblLoanRel As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -381,8 +381,8 @@ Partial Public Class NewMalayan1DataSet
         Me.relationtblSavAcc_tblCollSav = Me.Relations("tblSavAcc_tblCollSav")
         Me.relationtblCust_tblCollMisc = Me.Relations("tblCust_tblCollMisc")
         Me.relationtblCust_tblInsurance = Me.Relations("tblCust_tblInsurance")
-        Me.relationtblCust_tblLoanRel = Me.Relations("tblCust_tblLoanRel")
         Me.relationtblCust_tblSavAcc = Me.Relations("tblCust_tblSavAcc")
+        Me.relationtblCust_tblLoanRel = Me.Relations("tblCust_tblLoanRel")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -419,10 +419,10 @@ Partial Public Class NewMalayan1DataSet
         Me.Relations.Add(Me.relationtblCust_tblCollMisc)
         Me.relationtblCust_tblInsurance = New Global.System.Data.DataRelation("tblCust_tblInsurance", New Global.System.Data.DataColumn() {Me.tabletblCustomers.CustIDColumn}, New Global.System.Data.DataColumn() {Me.tabletblInsurance.CustIDColumn}, false)
         Me.Relations.Add(Me.relationtblCust_tblInsurance)
-        Me.relationtblCust_tblLoanRel = New Global.System.Data.DataRelation("tblCust_tblLoanRel", New Global.System.Data.DataColumn() {Me.tabletblCustomers.CustIDColumn}, New Global.System.Data.DataColumn() {Me.tabletblLoanRelease.CustIDColumn}, false)
-        Me.Relations.Add(Me.relationtblCust_tblLoanRel)
         Me.relationtblCust_tblSavAcc = New Global.System.Data.DataRelation("tblCust_tblSavAcc", New Global.System.Data.DataColumn() {Me.tabletblCustomers.CustIDColumn}, New Global.System.Data.DataColumn() {Me.tabletblSavingsAcc.SavAccNoColumn}, false)
         Me.Relations.Add(Me.relationtblCust_tblSavAcc)
+        Me.relationtblCust_tblLoanRel = New Global.System.Data.DataRelation("tblCust_tblLoanRel", New Global.System.Data.DataColumn() {Me.tabletblCustomers.CustIDColumn}, New Global.System.Data.DataColumn() {Me.tabletblLoanRelease.CustIDColumn}, false)
+        Me.Relations.Add(Me.relationtblCust_tblLoanRel)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4300,21 +4300,21 @@ Partial Public Class NewMalayan1DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function GettblLoanReleaseRows() As tblLoanReleaseRow()
-            If (Me.Table.ChildRelations("tblCust_tblLoanRel") Is Nothing) Then
-                Return New tblLoanReleaseRow(-1) {}
-            Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("tblCust_tblLoanRel")),tblLoanReleaseRow())
-            End If
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function GettblSavingsAccRows() As tblSavingsAccRow()
             If (Me.Table.ChildRelations("tblCust_tblSavAcc") Is Nothing) Then
                 Return New tblSavingsAccRow(-1) {}
             Else
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("tblCust_tblSavAcc")),tblSavingsAccRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function GettblLoanReleaseRows() As tblLoanReleaseRow()
+            If (Me.Table.ChildRelations("tblCust_tblLoanRel") Is Nothing) Then
+                Return New tblLoanReleaseRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("tblCust_tblLoanRel")),tblLoanReleaseRow())
             End If
         End Function
     End Class

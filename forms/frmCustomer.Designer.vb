@@ -89,9 +89,23 @@ Partial Class frmCustomer
         Me.btnPrevViewCust = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.TableAdapterManager = New nmc_system_vb.NewMalayan1DataSetTableAdapters.TableAdapterManager()
+        Me.TblCustomersTableAdapter = New nmc_system_vb.NewMalayan1DataSetTableAdapters.tblCustomersTableAdapter()
         Me.NewMalayan1DataSet = New nmc_system_vb.NewMalayan1DataSet()
         Me.TblCustomersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TblCustomersTableAdapter = New nmc_system_vb.NewMalayan1DataSetTableAdapters.tblCustomersTableAdapter()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CustStatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabCustHome.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -784,7 +798,10 @@ Partial Class frmCustomer
         Me.DataGridView2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView2.AutoGenerateColumns = False
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.CustStatusDataGridViewTextBoxColumn})
+        Me.DataGridView2.DataSource = Me.TblCustomersBindingSource
         Me.DataGridView2.Location = New System.Drawing.Point(5, 39)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.Size = New System.Drawing.Size(1045, 330)
@@ -803,6 +820,10 @@ Partial Class frmCustomer
         Me.TableAdapterManager.tblSavingsAccTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = nmc_system_vb.NewMalayan1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'TblCustomersTableAdapter
+        '
+        Me.TblCustomersTableAdapter.ClearBeforeFill = True
+        '
         'NewMalayan1DataSet
         '
         Me.NewMalayan1DataSet.DataSetName = "NewMalayan1DataSet"
@@ -813,9 +834,89 @@ Partial Class frmCustomer
         Me.TblCustomersBindingSource.DataMember = "tblCustomers"
         Me.TblCustomersBindingSource.DataSource = Me.NewMalayan1DataSet
         '
-        'TblCustomersTableAdapter
+        'DataGridViewTextBoxColumn1
         '
-        Me.TblCustomersTableAdapter.ClearBeforeFill = True
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "CustID"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "CustID"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "CustFname"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "CustFname"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CustMname"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "CustMname"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "CustLname"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "CustLname"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "CustSname"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "CustSname"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "CustAdd"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "CustAdd"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "CustContact"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "CustContact"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Center"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Center"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "CustOcc"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "CustOcc"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "CustDOB"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "CustDOB"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "CustDOM"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "CustDOM"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "CustSpouse"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "CustSpouse"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "CustBplace"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "CustBplace"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        '
+        'CustStatusDataGridViewTextBoxColumn
+        '
+        Me.CustStatusDataGridViewTextBoxColumn.DataPropertyName = "CustStatus"
+        Me.CustStatusDataGridViewTextBoxColumn.HeaderText = "CustStatus"
+        Me.CustStatusDataGridViewTextBoxColumn.Name = "CustStatusDataGridViewTextBoxColumn"
         '
         'frmCustomer
         '
@@ -925,4 +1026,18 @@ Partial Class frmCustomer
     Friend WithEvents TblCustomersTableAdapter As NewMalayan1DataSetTableAdapters.tblCustomersTableAdapter
     Friend WithEvents NewMalayan1DataSet As NewMalayan1DataSet
     Friend WithEvents TblCustomersBindingSource As BindingSource
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents CustStatusDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class
