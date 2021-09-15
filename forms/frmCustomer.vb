@@ -15,7 +15,7 @@ Public Class frmCustomer
 
     End Sub
 
-    Private Sub btnNewCust_Click(sender As Object, e As EventArgs) Handles btnNewCust.Click
+    Private Sub btnNewCust_Click(sender As Object, e As EventArgs)
         frmAddCust.BringToFront()
         frmAddCust.Show()
     End Sub
@@ -90,11 +90,11 @@ Public Class frmCustomer
 
     End Sub
 
-    Private Sub btnCustAdd_Click(sender As Object, e As EventArgs) Handles btnCustAdd.Click
+    Private Sub btnCustAdd_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub txtCustID_TextChanged(sender As Object, e As EventArgs) Handles txtCustID.TextChanged
+    Private Sub txtCustID_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 

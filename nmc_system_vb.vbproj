@@ -131,7 +131,9 @@
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <HintPath>packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -162,6 +164,7 @@
   <ItemGroup>
     <Compile Include="classes\Customer.vb" />
     <Compile Include="classes\Loan.vb" />
+    <Compile Include="classes\Collection.vb" />
     <Compile Include="CrystalReport1.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -221,6 +224,12 @@
       <DependentUpon>frmSavings.vb</DependentUpon>
     </Compile>
     <Compile Include="forms\frmSavings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmCollection.Designer.vb">
+      <DependentUpon>frmCollection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmCollection.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Model1.Context.vb">
@@ -326,6 +335,9 @@
     <EmbeddedResource Include="forms\frmSavings.resx">
       <DependentUpon>frmSavings.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmCollection.resx">
+      <DependentUpon>frmCollection.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
@@ -345,20 +357,8 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
-    <None Include="My Project\DataSources\Customer.datasource" />
     <None Include="My Project\DataSources\nmc_system_vb.My.MyApplication.datasource" />
     <None Include="My Project\DataSources\nmc_system_vb.My.MySettings.datasource" />
-    <None Include="My Project\DataSources\nmc_system_vb.NewMalayan1DataSetTableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
-    <None Include="My Project\DataSources\nmc_system_vb.NewMalayan1DataSetTableAdapters.TableAdapterManager.datasource" />
-    <None Include="My Project\DataSources\nmc_system_vb.NewMalayan1DataSetTableAdapters.tblCollectionInsTableAdapter.datasource" />
-    <None Include="My Project\DataSources\nmc_system_vb.NewMalayan1DataSetTableAdapters.tblCollectionLoanTableAdapter.datasource" />
-    <None Include="My Project\DataSources\nmc_system_vb.NewMalayan1DataSetTableAdapters.tblCollectionSavingsTableAdapter.datasource" />
-    <None Include="My Project\DataSources\nmc_system_vb.NewMalayan1DataSetTableAdapters.tblCollMiscTableAdapter.datasource" />
-    <None Include="My Project\DataSources\nmc_system_vb.NewMalayan1DataSetTableAdapters.tblCustomersTableAdapter.datasource" />
-    <None Include="My Project\DataSources\nmc_system_vb.NewMalayan1DataSetTableAdapters.tblInsuranceTableAdapter.datasource" />
-    <None Include="My Project\DataSources\nmc_system_vb.NewMalayan1DataSetTableAdapters.tblLoanReleaseTableAdapter.datasource" />
-    <None Include="My Project\DataSources\nmc_system_vb.NewMalayan1DataSetTableAdapters.tblSavingsAccTableAdapter.datasource" />
-    <None Include="My Project\DataSources\tblCustomer.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

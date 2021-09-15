@@ -20,16 +20,18 @@ Public Class Loan
     Private _intRate As Integer
     Private _intMonthlyRate As Integer
 
-
     Private _dblPrinRep As Double
     Private _dblIntRep As Double
     Private _dblProcRep As Double
+
+    'tblCollection
+    Private _intCollTotalPaid As Double
 
     Friend Sub AddLoan(strCustAccNo As String, strCustName As String, strDateRelease As String, intPrincipal As Integer _
                        , intMonthLyRate As Integer, intProcFeeRate As Integer, intTerms As Integer _
                        , strCycleNo As String, strTypeOfLoan As String)
 
-        LoanAccNo = 1000100
+        LoanAccNo = ""
         CustAccNo = CInt(strCustAccNo)
         Customer = strCustName
         _intTerms = intTerms
@@ -69,8 +71,6 @@ Public Class Loan
             cmd.Parameters.AddWithValue("@LoanType", _TypeOfLoan)
             cmd.Parameters.AddWithValue("@Maturity", _dteMaturity)
             cmd.ExecuteNonQuery()
-
-            'MsgBox("Customer added successfully!")
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -252,6 +252,76 @@ Public Class Loan
         End Set
         Get
             Return _dblProcRep
+
+        End Get
+    End Property
+
+    Public Sub AddCollection(DatePaid As Date, intRefNo As Integer, intLoanRep As Integer, intInsurance As Integer _
+                             , intRetFund As Integer, intSavings As Integer, intPenaltyPaid As Integer _
+                             , intPenaltyAdd As Integer, strCollBy As String)
+
+        _intPrincipal = intLoanRep / 1.4
+        _dblIntAmt = _intPrincipal * 0.36
+        _dblProcRep = _intPrincipal * 0.04
+        _intCollTotalPaid = intLoanRep + _dblIntAmt + _dblProcRep + intInsurance + intRetFund + intSavings + intPenaltyPaid
+        CustAccNo = 12345678
+        LoanAccNo = 1000100
+
+        Try
+            dbconnection()
+            sql = "INSERT INTO tblCollection VALUES(@RefNo, @TotalPaid, @Date, @CustId, @CollectedBy)"
+            cmd = New SqlCommand(sql, con)
+
+            cmd.Parameters.AddWithValue("@RefNo", intRefNo)
+            cmd.Parameters.AddWithValue("@Date", DatePaid)
+            cmd.Parameters.AddWithValue("@CustId", CustAccNo)
+            cmd.Parameters.AddWithValue("@CollectedBy", strCollBy)
+            cmd.Parameters.AddWithValue("@TotalPaid", _intCollTotalPaid)
+            'cmd.ExecuteNonQuery()
+
+            sql = "INSERT INTO tblCollectionLoan VALUES(@RefNo, @LoanAccNo, @PrincipalAmt, @IntAmt, @ProcFee, @PenaltyPaid)"
+            cmd = New SqlCommand(sql, con)
+
+            cmd.Parameters.AddWithValue("@RefNo", intRefNo)
+            cmd.Parameters.AddWithValue("@LoanAccNo", LoanAccNo)
+            cmd.Parameters.AddWithValue("@PrincipalAmt", _intPrincipal)
+            cmd.Parameters.AddWithValue("@IntAmt", _dblIntAmt)
+            cmd.Parameters.AddWithValue("@ProcFee", _dblProcRep)
+            cmd.Parameters.AddWithValue("@PenaltyPaid", intPenaltyPaid)
+            cmd.ExecuteNonQuery()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            Connection_Close()
+
+        End Try
+
+        MsgBox("Payment added successfully!")
+    End Sub
+
+    Public Function GetLoanID()
+        Dim intLoanID As Integer
+
+        dbconnection()
+        sql = "SELECT LoanAccNo FROM tblLoanRelease WHERE LoanAccNo=(SELECT MAX(LoanAccNo) FROM tblLoanRelease)"
+
+        cmd = New SqlClient.SqlCommand(sql, con)
+
+        dataReader = cmd.ExecuteReader
+        If (dataReader.Read()) Then
+            intLoanID = dataReader("LoanAccNo")
+        End If
+
+        Return intLoanID
+    End Function
+
+    Public Property CollTotalPaid As Double
+        Set(value As Double)
+            _intCollTotalPaid = (value)
+        End Set
+        Get
+            Return _intCollTotalPaid
 
         End Get
     End Property
