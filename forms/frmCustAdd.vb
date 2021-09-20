@@ -2,7 +2,7 @@
     Dim objCustomer As New Customer
 
     Private Sub btnCustAdd_Click_1(sender As Object, e As EventArgs) Handles btnCustAdd.Click
-        objCustomer.AddCustomer(Me.txtCustID.Text, Me.txtCustFirstName.Text, Me.txtCustMiddleName.Text, Me.txtCustLastName.Text _
+        objCustomer.AddCustomer_my(Me.txtCustID.Text, Me.txtCustFirstName.Text, Me.txtCustMiddleName.Text, Me.txtCustLastName.Text _
                                 , Me.txtCustSuffName.Text, Me.txtCustStreet.Text & ", " & Me.txtCustBrgy.Text & ", " & Me.txtCustMun.Text _
                                 & ", " & Me.txtCustProvince.Text, Me.txtCustNoHome.Text & "/" & Me.txtCustContact2.Text & "/" & Me.txtCustNoSpouse.Text _
                                 , Me.cboCenter.Text, Me.txtCustOcc.Text, Me.txtCustDOB.Text, Me.txtCustDOM.Text, Me.txtCustSpouse.Text, Me.txtCustBplace.Text, Me.txtCustStatus.Text)

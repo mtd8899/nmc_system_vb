@@ -1,5 +1,8 @@
 ﻿Module modConnect
 
+    'MySQL
+
+
     'OPEN CONNECTION BY METHOD CALL
     Public Sub dbconnection()
         con = New System.Data.SqlClient.SqlConnection(dbPath)

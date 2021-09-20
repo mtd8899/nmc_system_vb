@@ -1,4 +1,7 @@
 ﻿Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
+Imports Microsoft.VisualBasic.ApplicationServices
+Imports Microsoft.Win32
 
 Public Class Collection
     Dim _dtDatePaid As Date
@@ -31,14 +34,15 @@ Public Class Collection
 
     Public Sub New(DatePaid As Date, intRefNo As Integer, intLoanRep As Integer, intInsurance As Integer _
                     , intRetFund As Integer, intSavings As Integer, intPenaltyPaid As Integer _
-                    , intPenaltyAdd As Integer, intWithdrawSavings As Integer, strCollBy As String _
-                    , dtAddPenaltyDate As Date, strPenaltyNote As String)
+                    , intPenaltyAdd As Integer, intWithdrawSavings As Integer, strPenaltyNote As String _
+                    , intOtherPayment As Integer, strOtherPaymentDesc As String, strCollBy As String)
 
         ' Set the property value.
         _dtDatePaid = DatePaid
         _intRefNo = intRefNo
         _dblLoanAmort = intLoanRep
         _strCollBy = strCollBy
+        _strCollNotes = ""
 
         _dblInsurance = intInsurance
         _dblRetFund = intRetFund
@@ -49,11 +53,35 @@ Public Class Collection
         _dblPenaltyPaid = intPenaltyPaid
 
         _dblPenaltyAddAmt = intPenaltyAdd
-        _dtPenaltyAddDate = dtAddPenaltyDate
         _strPenaltyNote = strPenaltyNote
+        _dtPenaltyAddDate = _dtDatePaid
 
+        _dblOtherPaymentAmt = intOtherPayment
+        _strOtherPaymentDesc = strOtherPaymentDesc
 
     End Sub
+    Public Sub AddCollection_mysql()
+        _intCustId = 12345678
+        _dblTotalPaid = _dblPrincipalAmt + _dblIntAmt + _dblProcFee + _dblInsurance + _dblRetFund + _dblSavings +
+                        _dblPenaltyPaid
+
+        Dim conn As New MySql.Data.MySqlClient.MySqlConnection
+        Dim myConnectionString As String
+
+        myConnectionString = "server=localhost;" _
+            & "uid=root;" _
+            & "pwd=MySQL@1988;" _
+            & "database=nmc_database"
+
+        Try
+            conn.ConnectionString = myConnectionString
+            conn.Open()
+
+        Catch ex As MySql.Data.MySqlClient.MySqlException
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
 
     Public Sub AddCollection()
         _intCustId = 12345678

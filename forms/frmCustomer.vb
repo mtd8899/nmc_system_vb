@@ -12,7 +12,9 @@ Public Class frmCustomer
         Me.TblCustomersTableAdapter.Fill(Me.NewMalayan1DataSet.tblCustomers)
         db = New NewMalayan1Entities1()
 
-
+        openCon()
+        MsgBox("Connected")
+        conn.Close()
     End Sub
 
     Private Sub btnNewCust_Click(sender As Object, e As EventArgs)

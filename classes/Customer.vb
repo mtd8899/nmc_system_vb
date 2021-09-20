@@ -2,6 +2,47 @@
 
 Public Class Customer
 
+    Public Sub AddCustomer_my(strCustID As String, strCustFname As String, strCustMname As String, strCustLname As String _
+                            , strCustSname As String, strCustAdd As String, strCustContact As String _
+                            , strCustCenter As String, strCustOcc As String, strCustDOB As String _
+                            , strDOM As String, strCustSpouse As String, strCustBplace As String, strCustStatus As String)
+        openCon()
+
+        Try
+            cmd1.Connection = conn
+            cmd1.CommandText = "INSERT INTO customers VALUES(@CustID, @CustFname, @CustMname, @CustLname, @CustSname, @CustAdd, @CustContact, @Center, @CustOcc, @CustDOB, @CustDOM, @CustSpouse, @CustBplace, @CustStatus)"
+
+            'sql = "INSERT INTO customers VALUES(@CustID, @CustFname, @CustMname, @CustLname, @CustSname, @CustAdd, @CustContact, @Center, @CustOcc, @CustDOB, @CustDOM, @CustSpouse, @CustBplace, @CustStatus)"
+            'cmd = New SqlCommand(sql, conn)
+
+            cmd1.Parameters.AddWithValue("@CustID", strCustID)
+            cmd1.Parameters.AddWithValue("@CustFname", strCustFname)
+            cmd1.Parameters.AddWithValue("@CustMname", strCustMname)
+            cmd1.Parameters.AddWithValue("@CustLname", strCustLname)
+            cmd1.Parameters.AddWithValue("@CustSname", strCustSname)
+            cmd1.Parameters.AddWithValue("@CustAdd", strCustAdd)
+            cmd1.Parameters.AddWithValue("@CustContact", strCustContact)
+            cmd1.Parameters.AddWithValue("@Center", strCustCenter)
+            cmd1.Parameters.AddWithValue("@CustOcc", strCustOcc)
+            cmd1.Parameters.AddWithValue("@CustDOB", strCustDOB)
+            cmd1.Parameters.AddWithValue("@CustDOM", strDOM)
+            cmd1.Parameters.AddWithValue("@CustSpouse", strCustSpouse)
+            cmd1.Parameters.AddWithValue("@CustBplace", strCustBplace)
+            cmd1.Parameters.AddWithValue("@CustStatus", strCustStatus)
+            cmd1.ExecuteNonQuery()
+
+            'MsgBox("Customer added successfully!")
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+
+        End Try
+
+        MsgBox("Customer added successfully!")
+    End Sub
+
     Public Sub AddCustomer(strCustID As String, strCustFname As String, strCustMname As String, strCustLname As String _
                             , strCustSname As String, strCustAdd As String, strCustContact As String _
                             , strCustCenter As String, strCustOcc As String, strCustDOB As String _
