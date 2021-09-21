@@ -31,8 +31,6 @@ Public Class Customer
             cmd1.Parameters.AddWithValue("@CustStatus", strCustStatus)
             cmd1.ExecuteNonQuery()
 
-            'MsgBox("Customer added successfully!")
-
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -41,7 +39,26 @@ Public Class Customer
         End Try
 
         MsgBox("Customer added successfully!")
+
     End Sub
+
+    Public Function CreateCId()
+        Dim intCustID As Integer
+
+        openCon()
+        sql = "SELECT CustID FROM customers WHERE CustID=(SELECT MAX(CustID) FROM customers)"
+
+        cmd1 = New MySql.Data.MySqlClient.MySqlCommand(sql, conn)
+
+        reader = cmd1.ExecuteReader
+        If (reader.Read()) Then
+            intCustID = reader("CustID") + 1
+        End If
+        conn.Close()
+        Return intCustID
+
+
+    End Function
 
     Public Sub AddCustomer(strCustID As String, strCustFname As String, strCustMname As String, strCustLname As String _
                             , strCustSname As String, strCustAdd As String, strCustContact As String _
@@ -84,9 +101,9 @@ Public Class Customer
         'Dim txtControl As Control
 
         For Each txtControl In txtControl.Controls
-            If TypeOf (txtControl) Is TextBox Then
-                txtControl.Text = ""
-            End If
+            'If TypeOf (txtControl) Is TextBox Then
+            txtControl.Text  = ""
+            ' End If
         Next
 
     End Sub
@@ -169,4 +186,24 @@ Public Class Customer
         Return intCustID
     End Function
 
+    Public Sub DataBinding()
+        openCon()
+        Try
+            cmd1.Connection = conn
+            cmd1.CommandText = "SELECT CustID FROM customers WHERE CustID=(SELECT MAX(CustID) FROM customers)"
+            adapter.SelectCommand = cmd1
+            data.Clear()
+            adapter.Fill(data, "CustId")
+
+            'txtCustID.DataBindings.Add("Text", data, "CustId.CUstID")
+            'txtCustID.Text += 1
+            'txtCustID.DataBindings.Clear()
+
+            conn.Close()
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        Finally
+
+        End Try
+    End Sub
 End Class

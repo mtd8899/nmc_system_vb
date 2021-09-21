@@ -22,7 +22,6 @@ Partial Class frmCustAdd
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.grpCustPerInfo = New System.Windows.Forms.GroupBox()
         Me.cboCenter = New System.Windows.Forms.ComboBox()
@@ -46,7 +45,6 @@ Partial Class frmCustAdd
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtCustBrgy = New System.Windows.Forms.TextBox()
         Me.txtCustNoHome = New System.Windows.Forms.TextBox()
-        Me.txtCustDOB = New System.Windows.Forms.TextBox()
         Me.txtCustFirstName = New System.Windows.Forms.TextBox()
         Me.txtCustStreet = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -65,18 +63,13 @@ Partial Class frmCustAdd
         Me.txDOM = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtCustDOM = New System.Windows.Forms.TextBox()
         Me.txtCustLastName = New System.Windows.Forms.TextBox()
-        Me.NewMalayan1DataSet = New nmc_system_vb.NewMalayan1DataSet()
-        Me.TblCustomersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TblCustomersTableAdapter = New nmc_system_vb.NewMalayan1DataSetTableAdapters.tblCustomersTableAdapter()
-        Me.TableAdapterManager = New nmc_system_vb.NewMalayan1DataSetTableAdapters.TableAdapterManager()
+        Me.dtDOB = New System.Windows.Forms.DateTimePicker()
+        Me.dtDOM = New System.Windows.Forms.DateTimePicker()
         Me.Panel1.SuspendLayout()
         Me.grpCustPerInfo.SuspendLayout()
         CType(Me.picCustSign, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picCustPic, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NewMalayan1DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblCustomersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -93,6 +86,8 @@ Partial Class frmCustAdd
         Me.grpCustPerInfo.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpCustPerInfo.Controls.Add(Me.dtDOB)
+        Me.grpCustPerInfo.Controls.Add(Me.dtDOM)
         Me.grpCustPerInfo.Controls.Add(Me.cboCenter)
         Me.grpCustPerInfo.Controls.Add(Me.Label10)
         Me.grpCustPerInfo.Controls.Add(Me.txtCustOcc)
@@ -114,7 +109,6 @@ Partial Class frmCustAdd
         Me.grpCustPerInfo.Controls.Add(Me.Label7)
         Me.grpCustPerInfo.Controls.Add(Me.txtCustBrgy)
         Me.grpCustPerInfo.Controls.Add(Me.txtCustNoHome)
-        Me.grpCustPerInfo.Controls.Add(Me.txtCustDOB)
         Me.grpCustPerInfo.Controls.Add(Me.txtCustFirstName)
         Me.grpCustPerInfo.Controls.Add(Me.txtCustStreet)
         Me.grpCustPerInfo.Controls.Add(Me.Label6)
@@ -133,7 +127,6 @@ Partial Class frmCustAdd
         Me.grpCustPerInfo.Controls.Add(Me.txDOM)
         Me.grpCustPerInfo.Controls.Add(Me.Label4)
         Me.grpCustPerInfo.Controls.Add(Me.Label3)
-        Me.grpCustPerInfo.Controls.Add(Me.txtCustDOM)
         Me.grpCustPerInfo.Controls.Add(Me.txtCustLastName)
         Me.grpCustPerInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpCustPerInfo.Location = New System.Drawing.Point(13, 12)
@@ -168,7 +161,7 @@ Partial Class frmCustAdd
         Me.txtCustOcc.Location = New System.Drawing.Point(144, 218)
         Me.txtCustOcc.Name = "txtCustOcc"
         Me.txtCustOcc.Size = New System.Drawing.Size(218, 26)
-        Me.txtCustOcc.TabIndex = 74
+        Me.txtCustOcc.TabIndex = 16
         '
         'lblCustStatus
         '
@@ -196,7 +189,7 @@ Partial Class frmCustAdd
         Me.txtCustSpouse.Location = New System.Drawing.Point(121, 186)
         Me.txtCustSpouse.Name = "txtCustSpouse"
         Me.txtCustSpouse.Size = New System.Drawing.Size(468, 26)
-        Me.txtCustSpouse.TabIndex = 16
+        Me.txtCustSpouse.TabIndex = 15
         '
         'Label20
         '
@@ -295,7 +288,7 @@ Partial Class frmCustAdd
         Me.txtCustStatus.Location = New System.Drawing.Point(729, 161)
         Me.txtCustStatus.Name = "txtCustStatus"
         Me.txtCustStatus.Size = New System.Drawing.Size(128, 26)
-        Me.txtCustStatus.TabIndex = 8
+        Me.txtCustStatus.TabIndex = 14
         '
         'txtCustProvince
         '
@@ -331,14 +324,6 @@ Partial Class frmCustAdd
         Me.txtCustNoHome.Size = New System.Drawing.Size(95, 26)
         Me.txtCustNoHome.TabIndex = 10
         '
-        'txtCustDOB
-        '
-        Me.txtCustDOB.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCustDOB.Location = New System.Drawing.Point(121, 154)
-        Me.txtCustDOB.Name = "txtCustDOB"
-        Me.txtCustDOB.Size = New System.Drawing.Size(95, 26)
-        Me.txtCustDOB.TabIndex = 12
-        '
         'txtCustFirstName
         '
         Me.txtCustFirstName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -369,7 +354,7 @@ Partial Class frmCustAdd
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(220, 158)
+        Me.Label9.Location = New System.Drawing.Point(230, 155)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(38, 20)
         Me.Label9.TabIndex = 30
@@ -391,9 +376,9 @@ Partial Class frmCustAdd
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.Location = New System.Drawing.Point(11, 158)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(99, 20)
+        Me.Label19.Size = New System.Drawing.Size(44, 20)
         Me.Label19.TabIndex = 30
-        Me.Label19.Text = "Date of Birth"
+        Me.Label19.Text = "DOB"
         '
         'lblFisrtname
         '
@@ -457,7 +442,7 @@ Partial Class frmCustAdd
         Me.txtCustBplace.Location = New System.Drawing.Point(385, 155)
         Me.txtCustBplace.Name = "txtCustBplace"
         Me.txtCustBplace.Size = New System.Drawing.Size(204, 26)
-        Me.txtCustBplace.TabIndex = 14
+        Me.txtCustBplace.TabIndex = 13
         '
         'txtCustMiddleName
         '
@@ -507,14 +492,6 @@ Partial Class frmCustAdd
         Me.Label3.TabIndex = 38
         Me.Label3.Text = "Barangay"
         '
-        'txtCustDOM
-        '
-        Me.txtCustDOM.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCustDOM.Location = New System.Drawing.Point(729, 25)
-        Me.txtCustDOM.Name = "txtCustDOM"
-        Me.txtCustDOM.Size = New System.Drawing.Size(128, 26)
-        Me.txtCustDOM.TabIndex = 2
-        '
         'txtCustLastName
         '
         Me.txtCustLastName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -523,32 +500,23 @@ Partial Class frmCustAdd
         Me.txtCustLastName.Size = New System.Drawing.Size(121, 26)
         Me.txtCustLastName.TabIndex = 4
         '
-        'NewMalayan1DataSet
+        'dtDOB
         '
-        Me.NewMalayan1DataSet.DataSetName = "NewMalayan1DataSet"
-        Me.NewMalayan1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.dtDOB.CustomFormat = "yyyy/MM/dd"
+        Me.dtDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtDOB.Location = New System.Drawing.Point(61, 155)
+        Me.dtDOB.Name = "dtDOB"
+        Me.dtDOB.Size = New System.Drawing.Size(155, 26)
+        Me.dtDOB.TabIndex = 12
         '
-        'TblCustomersBindingSource
+        'dtDOM
         '
-        Me.TblCustomersBindingSource.DataMember = "tblCustomers"
-        Me.TblCustomersBindingSource.DataSource = Me.NewMalayan1DataSet
-        '
-        'TblCustomersTableAdapter
-        '
-        Me.TblCustomersTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.tblCollectionInsTableAdapter = Nothing
-        Me.TableAdapterManager.tblCollectionLoanTableAdapter = Nothing
-        Me.TableAdapterManager.tblCollectionSavingsTableAdapter = Nothing
-        Me.TableAdapterManager.tblCollMiscTableAdapter = Nothing
-        Me.TableAdapterManager.tblCustomersTableAdapter = Me.TblCustomersTableAdapter
-        Me.TableAdapterManager.tblInsuranceTableAdapter = Nothing
-        Me.TableAdapterManager.tblLoanReleaseTableAdapter = Nothing
-        Me.TableAdapterManager.tblSavingsAccTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = nmc_system_vb.NewMalayan1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.dtDOM.CustomFormat = "yyyy/MM/dd"
+        Me.dtDOM.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtDOM.Location = New System.Drawing.Point(706, 25)
+        Me.dtDOM.Name = "dtDOM"
+        Me.dtDOM.Size = New System.Drawing.Size(151, 26)
+        Me.dtDOM.TabIndex = 2
         '
         'frmCustAdd
         '
@@ -564,8 +532,6 @@ Partial Class frmCustAdd
         Me.grpCustPerInfo.PerformLayout()
         CType(Me.picCustSign, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picCustPic, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NewMalayan1DataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblCustomersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -584,7 +550,6 @@ Partial Class frmCustAdd
     Friend WithEvents txtCustProvince As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents txtCustBrgy As TextBox
-    Friend WithEvents txtCustDOB As TextBox
     Friend WithEvents txtCustFirstName As TextBox
     Friend WithEvents txtCustStreet As TextBox
     Friend WithEvents Label14 As Label
@@ -601,7 +566,6 @@ Partial Class frmCustAdd
     Friend WithEvents txDOM As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtCustDOM As TextBox
     Friend WithEvents txtCustLastName As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label9 As Label
@@ -613,9 +577,7 @@ Partial Class frmCustAdd
     Friend WithEvents txtCustOcc As TextBox
     Friend WithEvents txtCustNoHome As TextBox
     Friend WithEvents txtCustStatus As TextBox
-    Friend WithEvents NewMalayan1DataSet As NewMalayan1DataSet
-    Friend WithEvents TblCustomersBindingSource As BindingSource
-    Friend WithEvents TblCustomersTableAdapter As NewMalayan1DataSetTableAdapters.tblCustomersTableAdapter
-    Friend WithEvents TableAdapterManager As NewMalayan1DataSetTableAdapters.TableAdapterManager
     Friend WithEvents cboCenter As ComboBox
+    Friend WithEvents dtDOB As DateTimePicker
+    Friend WithEvents dtDOM As DateTimePicker
 End Class

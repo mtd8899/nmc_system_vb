@@ -3,16 +3,25 @@
 Public Class frmCustomer
     Private objCustomer As New Customer
     Private frmAddCust As New frmCustAdd
-    Private db As NewMalayan1Entities1
 
     Private Sub frmCustomer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'NewMalayan1DataSet.tblCustomers' table. You can move, or remove it, as needed.
-        Me.TblCustomersTableAdapter.Fill(Me.NewMalayan1DataSet.tblCustomers)
-        'TODO: This line of code loads data into the 'NewMalayan1DataSet.tblCustomers' table. You can move, or remove it, as needed.
-        Me.TblCustomersTableAdapter.Fill(Me.NewMalayan1DataSet.tblCustomers)
-        db = New NewMalayan1Entities1()
+        LoadCustomers()
 
+    End Sub
+
+    Public Sub LoadCustomers()
         openCon()
+        Try
+            cmd1.Connection = conn
+            cmd1.CommandText = "SELECT * FROM customers"
+            adapter.SelectCommand = cmd1
+            table.Clear()
+            adapter.Fill(table)
+            DataGridView2.DataSource = table
+            conn.Close()
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
         MsgBox("Connected")
         conn.Close()
     End Sub
@@ -92,14 +101,6 @@ Public Class frmCustomer
 
     End Sub
 
-    Private Sub btnCustAdd_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub txtCustID_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub cboCustStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboCustStatus.SelectedIndexChanged
         Dim strStatus As String = ""
         Select Case cboCustStatus.Text
@@ -134,12 +135,4 @@ Public Class frmCustomer
 
     End Sub
 
-    Private Sub btnPrintRepCust_Click(sender As Object, e As EventArgs) Handles btnPrintRepCust.Click
-        db = New NewMalayan1Entities1()
-
-    End Sub
-
-    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
-
-    End Sub
 End Class
