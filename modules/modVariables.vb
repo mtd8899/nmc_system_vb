@@ -8,7 +8,5 @@ Module modVaraibles
     Public dataAdapter As SqlDataAdapter
     Public cmd As SqlCommand
     Public dataReader As SqlDataReader
-    Public strCustFullAdd = ""
-    Public strCustFullContact = ""
 
 End Module

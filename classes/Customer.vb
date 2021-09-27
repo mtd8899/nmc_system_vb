@@ -2,18 +2,18 @@
 
 Public Class Customer
 
-    Public Sub AddCustomer_my(strCustID As String, strCustFname As String, strCustMname As String, strCustLname As String _
-                            , strCustSname As String, strCustAdd As String, strCustContact As String _
-                            , strCustCenter As String, strCustOcc As String, strCustDOB As String _
-                            , strDOM As String, strCustSpouse As String, strCustBplace As String, strCustStatus As String)
+    Public Sub AddCustomer_my(strCustID As String, strCustFname As String, strCustMname As String _
+                            , strCustLname As String, strCustSname As String, strCustAdd As String _
+                            , strCustContact As String, strCustCenter As String, strCustOcc As String _
+                            , strCustDOB As String, strDOM As String, strCustSpouse As String _
+                            , strCustBplace As String, strCustStatus As String)
         openCon()
 
         Try
             cmd1.Connection = conn
-            cmd1.CommandText = "INSERT INTO customers VALUES(@CustID, @CustFname, @CustMname, @CustLname, @CustSname, @CustAdd, @CustContact, @Center, @CustOcc, @CustDOB, @CustDOM, @CustSpouse, @CustBplace, @CustStatus)"
-
-            'sql = "INSERT INTO customers VALUES(@CustID, @CustFname, @CustMname, @CustLname, @CustSname, @CustAdd, @CustContact, @Center, @CustOcc, @CustDOB, @CustDOM, @CustSpouse, @CustBplace, @CustStatus)"
-            'cmd = New SqlCommand(sql, conn)
+            cmd1.CommandText = "INSERT INTO customers VALUES(@CustID, @CustFname, @CustMname, @CustLname,
+                                @CustSname, @CustAdd, @CustContact, @Center, @CustOcc, @CustDOB, @CustDOM,
+                                @CustSpouse, @CustBplace, @CustStatus)"
 
             cmd1.Parameters.AddWithValue("@CustID", strCustID)
             cmd1.Parameters.AddWithValue("@CustFname", strCustFname)
@@ -31,10 +31,11 @@ Public Class Customer
             cmd1.Parameters.AddWithValue("@CustStatus", strCustStatus)
             cmd1.ExecuteNonQuery()
 
+            conn.Close()
+
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
-            conn.Close()
 
         End Try
 
@@ -46,63 +47,26 @@ Public Class Customer
         Dim intCustID As Integer
 
         openCon()
-        sql = "SELECT CustID FROM customers WHERE CustID=(SELECT MAX(CustID) FROM customers)"
-
-        cmd1 = New MySql.Data.MySqlClient.MySqlCommand(sql, conn)
+        sql1 = "SELECT CustID FROM customers WHERE CustID=(SELECT MAX(CustID) FROM customers)"
+        cmd1 = New MySql.Data.MySqlClient.MySqlCommand(sql1, conn)
 
         reader = cmd1.ExecuteReader
         If (reader.Read()) Then
             intCustID = reader("CustID") + 1
         End If
+
         conn.Close()
+
         Return intCustID
 
-
     End Function
-
-    Public Sub AddCustomer(strCustID As String, strCustFname As String, strCustMname As String, strCustLname As String _
-                            , strCustSname As String, strCustAdd As String, strCustContact As String _
-                            , strCustCenter As String, strCustOcc As String, strCustDOB As String _
-                            , strDOM As String, strCustSpouse As String, strCustBplace As String, strCustStatus As String)
-        Try
-            dbconnection()
-            sql = "INSERT INTO tblCustomers VALUES(@CustID, @CustFname, @CustMname, @CustLname, @CustSname, @CustAdd, @CustContact, @Center, @CustOcc, @CustDOB, @CustDOM, @CustSpouse, @CustBplace, @CustStatus)"
-            cmd = New SqlCommand(sql, con)
-
-            cmd.Parameters.AddWithValue("@CustID", strCustID)
-            cmd.Parameters.AddWithValue("@CustFname", strCustFname)
-            cmd.Parameters.AddWithValue("@CustMname", strCustMname)
-            cmd.Parameters.AddWithValue("@CustLname", strCustLname)
-            cmd.Parameters.AddWithValue("@CustSname", strCustSname)
-            cmd.Parameters.AddWithValue("@CustAdd", strCustAdd)
-            cmd.Parameters.AddWithValue("@CustContact", strCustContact)
-            cmd.Parameters.AddWithValue("@Center", strCustCenter)
-            cmd.Parameters.AddWithValue("@CustOcc", strCustOcc)
-            cmd.Parameters.AddWithValue("@CustDOB", strCustDOB)
-            cmd.Parameters.AddWithValue("@CustDOM", strDOM)
-            cmd.Parameters.AddWithValue("@CustSpouse", strCustSpouse)
-            cmd.Parameters.AddWithValue("@CustBplace", strCustBplace)
-            cmd.Parameters.AddWithValue("@CustStatus", strCustStatus)
-            cmd.ExecuteNonQuery()
-
-            'MsgBox("Customer added successfully!")
-
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        Finally
-            Connection_Close()
-
-        End Try
-
-        MsgBox("Customer added successfully!")
-    End Sub
 
     Public Sub ClearAll(txtControl As Control)
         'Dim txtControl As Control
 
         For Each txtControl In txtControl.Controls
             'If TypeOf (txtControl) Is TextBox Then
-            txtControl.Text  = ""
+            txtControl.Text = ""
             ' End If
         Next
 

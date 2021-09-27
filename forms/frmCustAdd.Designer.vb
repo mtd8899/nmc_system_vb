@@ -24,6 +24,8 @@ Partial Class frmCustAdd
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.grpCustPerInfo = New System.Windows.Forms.GroupBox()
+        Me.dtDOB = New System.Windows.Forms.DateTimePicker()
+        Me.dtDOM = New System.Windows.Forms.DateTimePicker()
         Me.cboCenter = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtCustOcc = New System.Windows.Forms.TextBox()
@@ -64,8 +66,6 @@ Partial Class frmCustAdd
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtCustLastName = New System.Windows.Forms.TextBox()
-        Me.dtDOB = New System.Windows.Forms.DateTimePicker()
-        Me.dtDOM = New System.Windows.Forms.DateTimePicker()
         Me.Panel1.SuspendLayout()
         Me.grpCustPerInfo.SuspendLayout()
         CType(Me.picCustSign, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -135,6 +135,24 @@ Partial Class frmCustAdd
         Me.grpCustPerInfo.TabIndex = 0
         Me.grpCustPerInfo.TabStop = False
         Me.grpCustPerInfo.Text = "  Customer Personal Information"
+        '
+        'dtDOB
+        '
+        Me.dtDOB.CustomFormat = "yyyy/MM/dd"
+        Me.dtDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtDOB.Location = New System.Drawing.Point(61, 155)
+        Me.dtDOB.Name = "dtDOB"
+        Me.dtDOB.Size = New System.Drawing.Size(155, 26)
+        Me.dtDOB.TabIndex = 12
+        '
+        'dtDOM
+        '
+        Me.dtDOM.CustomFormat = "yyyy/MM/dd"
+        Me.dtDOM.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtDOM.Location = New System.Drawing.Point(706, 25)
+        Me.dtDOM.Name = "dtDOM"
+        Me.dtDOM.Size = New System.Drawing.Size(151, 26)
+        Me.dtDOM.TabIndex = 2
         '
         'cboCenter
         '
@@ -499,24 +517,6 @@ Partial Class frmCustAdd
         Me.txtCustLastName.Name = "txtCustLastName"
         Me.txtCustLastName.Size = New System.Drawing.Size(121, 26)
         Me.txtCustLastName.TabIndex = 4
-        '
-        'dtDOB
-        '
-        Me.dtDOB.CustomFormat = "yyyy/MM/dd"
-        Me.dtDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtDOB.Location = New System.Drawing.Point(61, 155)
-        Me.dtDOB.Name = "dtDOB"
-        Me.dtDOB.Size = New System.Drawing.Size(155, 26)
-        Me.dtDOB.TabIndex = 12
-        '
-        'dtDOM
-        '
-        Me.dtDOM.CustomFormat = "yyyy/MM/dd"
-        Me.dtDOM.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtDOM.Location = New System.Drawing.Point(706, 25)
-        Me.dtDOM.Name = "dtDOM"
-        Me.dtDOM.Size = New System.Drawing.Size(151, 26)
-        Me.dtDOM.TabIndex = 2
         '
         'frmCustAdd
         '

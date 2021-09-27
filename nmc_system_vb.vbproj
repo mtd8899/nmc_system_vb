@@ -290,7 +290,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Module1.vb" />
+    <Compile Include="modules\Module1.vb" />
     <Compile Include="modules\modVariables.vb" />
     <Compile Include="modules\modConnect.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

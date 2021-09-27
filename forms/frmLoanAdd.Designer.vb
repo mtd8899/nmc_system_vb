@@ -24,13 +24,18 @@ Partial Class frmLoanAdd
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtCustId = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.txtCoMaker = New System.Windows.Forms.TextBox()
         Me.btnShowAmort = New System.Windows.Forms.Button()
         Me.btnLoanAdd = New System.Windows.Forms.Button()
         Me.txtProcFee = New System.Windows.Forms.TextBox()
+        Me.txtCollateral = New System.Windows.Forms.TextBox()
         Me.txtCycleNo = New System.Windows.Forms.TextBox()
         Me.txtInterest = New System.Windows.Forms.TextBox()
         Me.txtPrincipal = New System.Windows.Forms.TextBox()
         Me.txtDateRel = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lstAmortTable = New System.Windows.Forms.ListBox()
         Me.lblDateRel = New System.Windows.Forms.Label()
@@ -54,6 +59,7 @@ Partial Class frmLoanAdd
         Me.lblLoanAcc = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -83,15 +89,21 @@ Partial Class frmLoanAdd
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.txtCustId)
+        Me.GroupBox1.Controls.Add(Me.Label20)
+        Me.GroupBox1.Controls.Add(Me.txtCoMaker)
         Me.GroupBox1.Controls.Add(Me.btnShowAmort)
         Me.GroupBox1.Controls.Add(Me.btnLoanAdd)
         Me.GroupBox1.Controls.Add(Me.txtProcFee)
+        Me.GroupBox1.Controls.Add(Me.txtCollateral)
         Me.GroupBox1.Controls.Add(Me.txtCycleNo)
         Me.GroupBox1.Controls.Add(Me.txtInterest)
         Me.GroupBox1.Controls.Add(Me.txtPrincipal)
         Me.GroupBox1.Controls.Add(Me.txtDateRel)
+        Me.GroupBox1.Controls.Add(Me.Label15)
         Me.GroupBox1.Controls.Add(Me.Panel2)
         Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -109,6 +121,32 @@ Partial Class frmLoanAdd
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "GroupBox1"
+        '
+        'txtCustId
+        '
+        Me.txtCustId.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCustId.Location = New System.Drawing.Point(149, 35)
+        Me.txtCustId.Name = "txtCustId"
+        Me.txtCustId.Size = New System.Drawing.Size(242, 26)
+        Me.txtCustId.TabIndex = 10
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(19, 38)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(109, 20)
+        Me.Label20.TabIndex = 11
+        Me.Label20.Text = "Cust. Acc. No."
+        '
+        'txtCoMaker
+        '
+        Me.txtCoMaker.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCoMaker.Location = New System.Drawing.Point(149, 329)
+        Me.txtCoMaker.Name = "txtCoMaker"
+        Me.txtCoMaker.Size = New System.Drawing.Size(242, 26)
+        Me.txtCoMaker.TabIndex = 9
         '
         'btnShowAmort
         '
@@ -130,38 +168,61 @@ Partial Class frmLoanAdd
         '
         'txtProcFee
         '
-        Me.txtProcFee.Location = New System.Drawing.Point(193, 210)
+        Me.txtProcFee.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtProcFee.Location = New System.Drawing.Point(149, 197)
         Me.txtProcFee.Name = "txtProcFee"
-        Me.txtProcFee.Size = New System.Drawing.Size(242, 31)
+        Me.txtProcFee.Size = New System.Drawing.Size(242, 26)
         Me.txtProcFee.TabIndex = 4
+        '
+        'txtCollateral
+        '
+        Me.txtCollateral.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCollateral.Location = New System.Drawing.Point(149, 361)
+        Me.txtCollateral.Name = "txtCollateral"
+        Me.txtCollateral.Size = New System.Drawing.Size(242, 26)
+        Me.txtCollateral.TabIndex = 7
         '
         'txtCycleNo
         '
-        Me.txtCycleNo.Location = New System.Drawing.Point(193, 335)
+        Me.txtCycleNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCycleNo.Location = New System.Drawing.Point(149, 297)
         Me.txtCycleNo.Name = "txtCycleNo"
-        Me.txtCycleNo.Size = New System.Drawing.Size(242, 31)
+        Me.txtCycleNo.Size = New System.Drawing.Size(242, 26)
         Me.txtCycleNo.TabIndex = 7
         '
         'txtInterest
         '
-        Me.txtInterest.Location = New System.Drawing.Point(193, 167)
+        Me.txtInterest.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtInterest.Location = New System.Drawing.Point(149, 165)
         Me.txtInterest.Name = "txtInterest"
-        Me.txtInterest.Size = New System.Drawing.Size(242, 31)
+        Me.txtInterest.Size = New System.Drawing.Size(242, 26)
         Me.txtInterest.TabIndex = 3
         '
         'txtPrincipal
         '
-        Me.txtPrincipal.Location = New System.Drawing.Point(193, 121)
+        Me.txtPrincipal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPrincipal.Location = New System.Drawing.Point(149, 133)
         Me.txtPrincipal.Name = "txtPrincipal"
-        Me.txtPrincipal.Size = New System.Drawing.Size(242, 31)
+        Me.txtPrincipal.Size = New System.Drawing.Size(242, 26)
         Me.txtPrincipal.TabIndex = 2
         '
         'txtDateRel
         '
-        Me.txtDateRel.Location = New System.Drawing.Point(193, 78)
+        Me.txtDateRel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDateRel.Location = New System.Drawing.Point(149, 101)
         Me.txtDateRel.Name = "txtDateRel"
-        Me.txtDateRel.Size = New System.Drawing.Size(242, 31)
+        Me.txtDateRel.Size = New System.Drawing.Size(242, 26)
         Me.txtDateRel.TabIndex = 1
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(19, 335)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(78, 20)
+        Me.Label15.TabIndex = 1
+        Me.Label15.Text = "Co-maker"
         '
         'Panel2
         '
@@ -390,109 +451,120 @@ Partial Class frmLoanAdd
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(26, 299)
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(19, 269)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(114, 25)
+        Me.Label7.Size = New System.Drawing.Size(83, 20)
         Me.Label7.TabIndex = 1
         Me.Label7.Text = "Loan Type"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(19, 368)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(75, 20)
+        Me.Label9.TabIndex = 1
+        Me.Label9.Text = "Collateral"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(26, 256)
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(19, 236)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(72, 25)
+        Me.Label6.Size = New System.Drawing.Size(53, 20)
         Me.Label6.TabIndex = 1
         Me.Label6.Text = "Terms"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(26, 338)
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(19, 302)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(105, 25)
+        Me.Label8.Size = New System.Drawing.Size(75, 20)
         Me.Label8.TabIndex = 1
         Me.Label8.Text = "Cycle No."
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(26, 213)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(19, 203)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(99, 25)
+        Me.Label5.Size = New System.Drawing.Size(73, 20)
         Me.Label5.TabIndex = 1
         Me.Label5.Text = "Proc Fee"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(26, 170)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(19, 170)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(172, 25)
+        Me.Label4.Size = New System.Drawing.Size(129, 20)
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "Interest(monthly)"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(26, 127)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(19, 137)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(95, 25)
+        Me.Label3.Size = New System.Drawing.Size(68, 20)
         Me.Label3.TabIndex = 1
         Me.Label3.Text = "Principal"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(26, 84)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(19, 104)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(142, 25)
+        Me.Label2.Size = New System.Drawing.Size(107, 20)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Date Release"
         '
         'cboLoanType
         '
-        Me.cboLoanType.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboLoanType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboLoanType.FormattingEnabled = True
         Me.cboLoanType.Items.AddRange(New Object() {"Personal Loan", "Business Loan"})
-        Me.cboLoanType.Location = New System.Drawing.Point(193, 296)
+        Me.cboLoanType.Location = New System.Drawing.Point(149, 263)
         Me.cboLoanType.Name = "cboLoanType"
-        Me.cboLoanType.Size = New System.Drawing.Size(242, 33)
+        Me.cboLoanType.Size = New System.Drawing.Size(242, 28)
         Me.cboLoanType.TabIndex = 6
         '
         'cboTerms
         '
-        Me.cboTerms.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboTerms.DisplayMember = "CustID"
+        Me.cboTerms.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboTerms.FormattingEnabled = True
-        Me.cboTerms.Location = New System.Drawing.Point(193, 253)
+        Me.cboTerms.Location = New System.Drawing.Point(149, 229)
         Me.cboTerms.Name = "cboTerms"
-        Me.cboTerms.Size = New System.Drawing.Size(242, 33)
+        Me.cboTerms.Size = New System.Drawing.Size(242, 28)
         Me.cboTerms.TabIndex = 5
         Me.cboTerms.ValueMember = "CustID"
         '
         'cboCustName
         '
-        Me.cboCustName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCustName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCustName.FormattingEnabled = True
-        Me.cboCustName.Location = New System.Drawing.Point(193, 30)
+        Me.cboCustName.Location = New System.Drawing.Point(149, 67)
         Me.cboCustName.Name = "cboCustName"
-        Me.cboCustName.Size = New System.Drawing.Size(242, 33)
+        Me.cboCustName.Size = New System.Drawing.Size(242, 28)
         Me.cboCustName.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(26, 41)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(19, 71)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(166, 25)
+        Me.Label1.Size = New System.Drawing.Size(124, 20)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Customer Name"
         '
@@ -555,4 +627,10 @@ Partial Class frmLoanAdd
     Friend WithEvents Label8 As Label
     Friend WithEvents btnShowAmort As Button
     Friend WithEvents lstAmortTable As ListBox
+    Friend WithEvents txtCoMaker As TextBox
+    Friend WithEvents txtCollateral As TextBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txtCustId As TextBox
+    Friend WithEvents Label20 As Label
 End Class

@@ -11,6 +11,7 @@ Public Class frmCustomer
 
     Public Sub LoadCustomers()
         openCon()
+
         Try
             cmd1.Connection = conn
             cmd1.CommandText = "SELECT * FROM customers"
@@ -19,10 +20,13 @@ Public Class frmCustomer
             adapter.Fill(table)
             DataGridView2.DataSource = table
             conn.Close()
+
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
+
         MsgBox("Connected")
+
         conn.Close()
     End Sub
 

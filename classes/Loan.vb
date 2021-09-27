@@ -2,7 +2,7 @@
 
 'Option Strict On
 Public Class Loan
-    Public Property Customer As String
+    Public Property CustomerName As String
     Public Property TypeOfLoan As String
     Public Property NoOfCycle As String
     Property CustAccNo As Integer
@@ -27,13 +27,14 @@ Public Class Loan
     'tblCollection
     Private _intCollTotalPaid As Double
 
-    Friend Sub AddLoan(strCustAccNo As String, strCustName As String, strDateRelease As String, intPrincipal As Integer _
-                       , intMonthLyRate As Integer, intProcFeeRate As Integer, intTerms As Integer _
-                       , strCycleNo As String, strTypeOfLoan As String)
+    Friend Sub AddLoan(strCustAccNo As String, strCustName As String, strDateRelease As String _
+                       , intPrincipal As Integer, intMonthLyRate As Integer, intProcFeeRate As Integer _
+                       , intTerms As Integer, strCycleNo As String, strTypeOfLoan As String, strComaker As String _
+                       , strCollateral As String)
 
-        LoanAccNo = ""
-        CustAccNo = CInt(strCustAccNo)
-        Customer = strCustName
+        LoanAccNo = CreateLoanID()
+        CustAccNo = strCustAccNo
+        CustomerName = Split(strCustName, "(").First
         _intTerms = intTerms
         _intPrincipal = intPrincipal
         _intMonthlyRate = intMonthLyRate
@@ -56,30 +57,33 @@ Public Class Loan
         _dblIntRep = _dblPrinRep * 0.36
         _dblProcRep = _dblPrinRep * 0.04
 
+        openCon()
         Try
-            dbconnection()
-            sql = "INSERT INTO tblLoanRelease VALUES(@LoanAccNo, @CustID, @DateRelease, @Principal, @Interest, @ProcFee, @Terms, @LoanType, @Maturity)"
-            cmd = New SqlCommand(sql, con)
+            cmd1.Connection = conn
+            sql1 = "INSERT INTO loan_release VALUES(@loan_acc_no, @cust_id, @date_release, @principal, 
+                  @int_rate, @proc_fee, @terms, @loan_type, @maturity, @co_maker, @collateral)"
+            cmd1.CommandText = sql1
 
-            cmd.Parameters.AddWithValue("@LoanAccNo", LoanAccNo)
-            cmd.Parameters.AddWithValue("@CustID", CustAccNo)
-            cmd.Parameters.AddWithValue("@DateRelease", _dteDateRelease)
-            cmd.Parameters.AddWithValue("@Principal", _intPrincipal)
-            cmd.Parameters.AddWithValue("@Interest", _dblIntAmt)
-            cmd.Parameters.AddWithValue("@ProcFee", _dblProcFeeAmt)
-            cmd.Parameters.AddWithValue("@Terms", _intTerms)
-            cmd.Parameters.AddWithValue("@LoanType", _TypeOfLoan)
-            cmd.Parameters.AddWithValue("@Maturity", _dteMaturity)
-            cmd.ExecuteNonQuery()
+            cmd1.Parameters.AddWithValue("@loan_acc_no", LoanAccNo)
+            cmd1.Parameters.AddWithValue("@cust_id", CustAccNo)
+            cmd1.Parameters.AddWithValue("@date_release", _dteDateRelease)
+            cmd1.Parameters.AddWithValue("@principal", _intPrincipal)
+            cmd1.Parameters.AddWithValue("@int_rate", _intRate)
+            cmd1.Parameters.AddWithValue("@proc_fee", intProcFeeRate)
+            cmd1.Parameters.AddWithValue("@terms", _intTerms)
+            cmd1.Parameters.AddWithValue("@loan_type", _TypeOfLoan)
+            cmd1.Parameters.AddWithValue("@maturity", _dteMaturity)
+            cmd1.Parameters.AddWithValue("@co_maker", strComaker)
+            cmd1.Parameters.AddWithValue("@collateral", strCollateral)
+            cmd1.ExecuteNonQuery()
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox(ex.Message & "hi")
         Finally
-            Connection_Close()
-
+            conn.Close()
         End Try
 
-        MsgBox("Loan added successfully!")
+        Finalize()
 
     End Sub
 
@@ -89,66 +93,29 @@ Public Class Loan
         Return strRate
     End Function
 
-    Public Sub AdLoan()
-
-        Try
-            dbconnection()
-            sql = "INSERT INTO tblLoanRelease VALUES(@LoanAccNo, @CustID, @DateRelease, @Principal, @Interest, @ProcFee, @Terms, @LoanType, @Maturity)"
-            cmd = New SqlCommand(sql, con)
-
-            cmd.Parameters.AddWithValue("@LoanAccNo", LoanAccNo)
-            cmd.Parameters.AddWithValue("@CustID", CustAccNo)
-            cmd.Parameters.AddWithValue("@DateRelease", _dteDateRelease)
-            cmd.Parameters.AddWithValue("@Principal", _intPrincipal)
-            cmd.Parameters.AddWithValue("@Interest", _dblIntAmt)
-            cmd.Parameters.AddWithValue("@ProcFee", _dblProcFeeAmt)
-            cmd.Parameters.AddWithValue("@Terms", _intTerms)
-            cmd.Parameters.AddWithValue("@LoanType", _TypeOfLoan)
-            cmd.Parameters.AddWithValue("@Maturity", _dteMaturity)
-            cmd.ExecuteNonQuery()
-
-            'MsgBox("Customer added successfully!")
-
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        Finally
-            Connection_Close()
-
-        End Try
-
-        MsgBox("Loan added successfully!")
-    End Sub
-
     Public Function CreateLoanID()
         Dim intCustID As Integer
 
-        dbconnection()
-        sql = "SELECT LoanAccNo FROM tblLoanRelease WHERE LoanAccNo=(SELECT MAX(LoanAccNo) FROM tblLoanRelease)"
+        openCon()
+        Try
+            cmd1.Connection = conn
+            sql1 = "SELECT loan_acc_no FROM loan_release WHERE loan_acc_no=(SELECT MAX(loan_acc_no) 
+                    FROM loan_release)"
+            cmd1.CommandText = sql1
 
-        cmd = New SqlClient.SqlCommand(sql, con)
+            reader = cmd1.ExecuteReader
+            If (reader.Read()) Then
+                intCustID = reader("loan_acc_no") + 1
+            End If
 
-        dataReader = cmd.ExecuteReader
-        If (dataReader.Read()) Then
-            intCustID = dataReader("LoanAccNo") + 1
-        End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+
+        Finally
+            conn.Close()
+        End Try
 
         Return intCustID
-    End Function
-
-    Public Function FillCboCustName() As Object
-        Dim objFillCustName As Object = ""
-        dbconnection()
-        sql = "SELECT * FROM viewCustName"
-        cmd = New SqlClient.SqlCommand(sql, con)
-
-        dataAdapter = New SqlClient.SqlDataAdapter(cmd)
-        Dim table As New DataTable()
-        dataAdapter.Fill(table)
-        objFillCustName.DataSource = table
-        objFillCustName.DisplayMember = "CustName"
-        objFillCustName.ValueMember = "CustID"
-
-        Return objFillCustName
     End Function
 
     Public Property Amort As String
@@ -299,22 +266,6 @@ Public Class Loan
 
         MsgBox("Payment added successfully!")
     End Sub
-
-    Public Function GetLoanID()
-        Dim intLoanID As Integer
-
-        dbconnection()
-        sql = "SELECT LoanAccNo FROM tblLoanRelease WHERE LoanAccNo=(SELECT MAX(LoanAccNo) FROM tblLoanRelease)"
-
-        cmd = New SqlClient.SqlCommand(sql, con)
-
-        dataReader = cmd.ExecuteReader
-        If (dataReader.Read()) Then
-            intLoanID = dataReader("LoanAccNo")
-        End If
-
-        Return intLoanID
-    End Function
 
     Public Property CollTotalPaid As Double
         Set(value As Double)

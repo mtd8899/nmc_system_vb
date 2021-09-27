@@ -3,12 +3,13 @@ Public Class frmLoanAdd
     Dim objLoan As New Loan
 
     Private Sub btnLoanAdd_Click(sender As Object, e As EventArgs) Handles btnLoanAdd.Click
-        objLoan.AddLoan(cboCustName.SelectedValue, cboCustName.Text, txtDateRel.Text, CInt(txtPrincipal.Text), CInt(txtInterest.Text), CInt(txtProcFee.Text) _
-                        , CInt(cboTerms.Text), txtCycleNo.Text, cboLoanType.Text)
+        objLoan.AddLoan(cboCustName.SelectedValue, cboCustName.Text, txtDateRel.Text, txtPrincipal.Text,
+                        txtInterest.Text, txtProcFee.Text, cboTerms.Text, txtCycleNo.Text,
+                        cboLoanType.Text, txtCoMaker.Text, txtCollateral.Text)
 
         lblLoanAcc.Text = objLoan.LoanAccNo
         lblCustID.Text = cboCustName.SelectedValue
-        lblCustName.Text = objLoan.Customer
+        lblCustName.Text = objLoan.CustomerName
         lblAmort.Text = objLoan.Amort
         lblPrincipal.Text = objLoan.PrincipalAmt
         lblMaturity.Text = objLoan.Maturity
@@ -30,23 +31,30 @@ Public Class frmLoanAdd
                                     objLoan.RepInt & vbTab & objLoan.RepProcFee & vbTab & objLoan.Payable.ToString("###,##0"))
         Loop
 
-
-    End Sub
-
-    Private Sub cboCustName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboCustName.SelectedIndexChanged
-
+        MsgBox("Loan added successfully!")
     End Sub
 
     Private Sub frmLoanAdd_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dbconnection()
-        sql = "SELECT * FROM viewCustName"
-        cmd = New SqlClient.SqlCommand(sql, con)
 
-        dataAdapter = New SqlClient.SqlDataAdapter(cmd)
-        Dim table As New DataTable()
-        dataAdapter.Fill(table)
-        cboCustName.DataSource = table
-        cboCustName.DisplayMember = "CustName"
-        cboCustName.ValueMember = "CustID"
+        openCon()
+        Try
+            cmd1.Connection = conn
+            sql1 = "SELECT * FROM view_custnameid"
+            cmd1.CommandText = sql1
+            adapter.SelectCommand = cmd1
+            table.Clear()
+            adapter.Fill(table)
+            cboCustName.DataSource = table
+            cboCustName.ValueMember = "CustID"
+            cboCustName.DisplayMember = "NameId"
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+        conn.Close()
+
+        cboCustName.Select()
+
     End Sub
+
 End Class
