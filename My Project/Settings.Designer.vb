@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -84,6 +84,49 @@ Namespace My
         Public ReadOnly Property NewMalayan1ConnectionString() As String
             Get
                 Return CType(Me("NewMalayan1ConnectionString"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=nmc_database;persistsecurityinfo=False;pas"& _ 
+            "sword=MySQL@1988")>  _
+        Public ReadOnly Property nmc_databaseConnectionString() As String
+            Get
+                Return CType(Me("nmc_databaseConnectionString"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=nmc_database;persistsecurityinfo=True")>  _
+        Public ReadOnly Property nmc_databaseConnectionString1() As String
+            Get
+                Return CType(Me("nmc_databaseConnectionString1"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=nmc_database;persistsecurityinfo=True;pass"& _ 
+            "word=MySQL@1988")>  _
+        Public ReadOnly Property nmc_databaseConnectionString2() As String
+            Get
+                Return CType(Me("nmc_databaseConnectionString2"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=MySQL@1988;database=nmc_database;persistse"& _ 
+            "curityinfo=True")>  _
+        Public ReadOnly Property nmc_databaseConnectionString_f() As String
+            Get
+                Return CType(Me("nmc_databaseConnectionString_f"),String)
             End Get
         End Property
     End Class

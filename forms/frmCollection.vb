@@ -1,38 +1,141 @@
 ﻿Public Class frmCollection
-    Dim objLoan As New Loan()
-
-    ' Public Sub New(objCollection As Collection)
-    'Me.objCollection = objCollection
-    'End Sub
-
-    Private Sub lblLoanRep_Click(sender As Object, e As EventArgs) Handles lblLoanRep.Click, Label2.Click
-
-    End Sub
+    Private objLoan As New Loan
 
     Private Sub frmCollection_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'NewMalayan1DataSet.tblCollection' table. You can move, or remove it, as needed.
-        Me.TblCollectionTableAdapter.Fill(Me.NewMalayan1DataSet.tblCollection)
-        'TODO: This line of code loads data into the 'NewMalayan1DataSet.View_1' table. You can move, or remove it, as needed.
-        'Me.View_1TableAdapter.Fill(Me.NewMalayan1DataSet.View_1)
-        'TODO: This line of code loads data into the 'NewMalayan1DataSet.tblCollectionLoan' table. You can move, or remove it, as needed.
-        Me.TblCollectionLoanTableAdapter.Fill(Me.NewMalayan1DataSet.tblCollectionLoan)
+        'Dim intCustId As Integer
+        openCon()
+        Try
+            cmd1.Connection = conn
+            sql1 = "SELECT * FROM name_lid_bal"
+            cmd1.CommandText = sql1
+            adapter.SelectCommand = cmd1
+            table.Clear()
+            adapter.Fill(table)
+            cboCustName.DataSource = table
+            cboCustName.ValueMember = "id"
+            cboCustName.DisplayMember = "name_lid_balance"
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+        conn.Close()
+
+        'btnSubmit.Enabled = False
 
     End Sub
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
-        'objLoan.AddCollection(txtDate.Text, txtRefNo.Text, txtLoanRep.Text, txtInsurance.Text, txtRetFund.Text _
-        ' , txtSavings.Text, txtPenaltyPaid.Text, txtAddPenalty.Text, txtColBy.Text)
+        Try
 
-        Dim objCollection As New Collection(txtDate.Text, txtRefNo.Text, txtLoanRep.Text, txtInsurance.Text, txtRetFund.Text _
-                                            , txtSavingsDep.Text, txtPenaltyPaid.Text, txtAddPenalty.Text, txtSavingsWithdraw.Text _
-                                            , txtAddPenNote.Text, txtOtherPayment.Text, txtOtherPayDesc.Text, txtColBy.Text)
+            objLoan.AddPayment(Mid(cboCustName.Text, InStrRev(cboCustName.Text, "(") + 1, 6),
+                           cboCustName.SelectedValue,
+                           txtDate.Text,
+                           txtLoanRep.Text,
+                           txtInsurance.Text,
+                           txtRefNo.Text,
+                           txtRetFund.Text,
+                           txtSavingsDep.Text,
+                           txtSavingsWithdraw.Text,
+                           txtPenaltyPaid.Text,
+                           txtOtherPayment.Text,
+                           txtOtherPayDesc.Text,
+                           txtAddPenalty.Text,
+                           txtAddPenNote.Text,
+                           txtColBy.Text)
 
-        objCollection.AddCollection()
-        objCollection.AddCollectionLoan()
-        objCollection.AddCollectionSavings()
-        objCollection.AddCollectionIns()
-        objCollection.AddPenalty()
-        objCollection.AddCollMisc()
+            ClearTextbox()
+
+        Catch ex As Exception
+            MsgBox("Please enter correct data.
+Error details:
+" & ex.ToString)
+        End Try
+
+    End Sub
+
+    Public Function GetLoanAccNo()
+        Dim intLoanAccNo As Integer
+        openCon()
+        Try
+            cmd1.Connection = conn
+            sql1 = "SELECT * FROM name_lid_bal"
+            cmd1.CommandText = sql1
+            adapter.SelectCommand = cmd1
+            table.Clear()
+            adapter.Fill(table)
+            cboCustName.DataSource = table
+            cboCustName.ValueMember = "id"
+            cboCustName.DisplayMember = "name_lid_balance"
+
+            Dim pos As Integer = InStrRev(cboCustName.Text, "(")
+            intLoanAccNo = Mid(cboCustName.Text, pos + 1, 6)
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+        conn.Close()
+
+        Return intLoanAccNo
+    End Function
+
+    Private Sub txtOtherPayDesc_Click(sender As Object, e As EventArgs) Handles txtOtherPayDesc.Click
+        txtTotalPayment.Text = objLoan.CollTotalPaid
+    End Sub
+
+    Public Function GetLastRefNo()
+        Dim intLastRefNo As Integer
+
+        openCon()
+        Try
+            cmd1.Connection = conn
+            sql1 = "SELECT ref_no FROM tbl_collections WHERE ref_no =(SELECT MAX(ref_no) 
+                    FROM tbl_collections)"
+            cmd1.CommandText = sql1
+
+            reader = cmd1.ExecuteReader
+            If (reader.Read()) Then
+                intLastRefNo = reader("ref_no")
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+
+        Finally
+            conn.Close()
+        End Try
+
+        Return intLastRefNo
+    End Function
+
+    Private Sub btnShowLastRefNo_Click(sender As Object, e As EventArgs) Handles btnShowLastRefNo.Click
+        MsgBox("Last ref. no.: " & GetLastRefNo())
+    End Sub
+
+    Public Sub ClearTextbox()
+        If chkCollDate.Checked = False Then
+            txtDate.Text = " "
+        End If
+
+        If chkRefNo.Checked = False Then
+            txtRefNo.Text = " "
+        End If
+
+        If chkCollBy.Checked = False Then
+            txtColBy.Text = " "
+        End If
+
+        cboCustName.Text = " "
+        txtLoanRep.Text = " 0"
+        txtInsurance.Text = "0"
+        txtRetFund.Text = "0"
+        txtSavingsDep.Text = "0"
+        txtPenaltyPaid.Text = "0"
+        txtAddPenalty.Text = "0"
+        txtAddPenNote.Text = " "
+        txtOtherPayment.Text = "0"
+        txtOtherPayDesc.Text = " "
+        txtTotalPayment.Text = "0"
+        txtSavingsWithdraw.Text = "0"
 
     End Sub
 

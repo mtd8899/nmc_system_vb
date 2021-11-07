@@ -77,11 +77,13 @@ Partial Class frmLoanAdd
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Controls.Add(Me.GroupBox1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1152, 501)
+        Me.Panel1.Size = New System.Drawing.Size(1152, 466)
         Me.Panel1.TabIndex = 0
         '
         'GroupBox1
@@ -117,10 +119,10 @@ Partial Class frmLoanAdd
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1128, 477)
+        Me.GroupBox1.Size = New System.Drawing.Size(1128, 443)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "GroupBox1"
+        Me.GroupBox1.Text = "Loan deatails:"
         '
         'txtCustId
         '
@@ -146,11 +148,11 @@ Partial Class frmLoanAdd
         Me.txtCoMaker.Location = New System.Drawing.Point(149, 329)
         Me.txtCoMaker.Name = "txtCoMaker"
         Me.txtCoMaker.Size = New System.Drawing.Size(242, 26)
-        Me.txtCoMaker.TabIndex = 9
+        Me.txtCoMaker.TabIndex = 8
         '
         'btnShowAmort
         '
-        Me.btnShowAmort.Location = New System.Drawing.Point(9, 418)
+        Me.btnShowAmort.Location = New System.Drawing.Point(6, 393)
         Me.btnShowAmort.Name = "btnShowAmort"
         Me.btnShowAmort.Size = New System.Drawing.Size(159, 47)
         Me.btnShowAmort.TabIndex = 8
@@ -159,10 +161,10 @@ Partial Class frmLoanAdd
         '
         'btnLoanAdd
         '
-        Me.btnLoanAdd.Location = New System.Drawing.Point(193, 421)
+        Me.btnLoanAdd.Location = New System.Drawing.Point(232, 393)
         Me.btnLoanAdd.Name = "btnLoanAdd"
         Me.btnLoanAdd.Size = New System.Drawing.Size(159, 47)
-        Me.btnLoanAdd.TabIndex = 8
+        Me.btnLoanAdd.TabIndex = 10
         Me.btnLoanAdd.Text = "Submit"
         Me.btnLoanAdd.UseVisualStyleBackColor = True
         '
@@ -180,7 +182,7 @@ Partial Class frmLoanAdd
         Me.txtCollateral.Location = New System.Drawing.Point(149, 361)
         Me.txtCollateral.Name = "txtCollateral"
         Me.txtCollateral.Size = New System.Drawing.Size(242, 26)
-        Me.txtCollateral.TabIndex = 7
+        Me.txtCollateral.TabIndex = 9
         '
         'txtCycleNo
         '
@@ -251,9 +253,9 @@ Partial Class frmLoanAdd
         Me.Panel2.Controls.Add(Me.lblLoanAcc)
         Me.Panel2.Controls.Add(Me.Label10)
         Me.Panel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel2.Location = New System.Drawing.Point(454, 30)
+        Me.Panel2.Location = New System.Drawing.Point(397, 30)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(668, 438)
+        Me.Panel2.Size = New System.Drawing.Size(731, 410)
         Me.Panel2.TabIndex = 3
         '
         'lstAmortTable
@@ -263,10 +265,10 @@ Partial Class frmLoanAdd
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstAmortTable.FormattingEnabled = True
         Me.lstAmortTable.ItemHeight = 25
-        Me.lstAmortTable.Location = New System.Drawing.Point(18, 172)
+        Me.lstAmortTable.Location = New System.Drawing.Point(18, 154)
         Me.lstAmortTable.Name = "lstAmortTable"
-        Me.lstAmortTable.Size = New System.Drawing.Size(633, 254)
-        Me.lstAmortTable.TabIndex = 3
+        Me.lstAmortTable.Size = New System.Drawing.Size(696, 254)
+        Me.lstAmortTable.TabIndex = 200
         '
         'lblDateRel
         '
@@ -572,10 +574,10 @@ Partial Class frmLoanAdd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1152, 501)
+        Me.ClientSize = New System.Drawing.Size(1152, 470)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frmLoanAdd"
-        Me.Text = "Loan Cycle"
+        Me.Text = "Add Loan Form"
         Me.Panel1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

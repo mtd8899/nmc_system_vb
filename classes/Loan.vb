@@ -1,12 +1,9 @@
-﻿Imports System.Data.SqlClient
-
-'Option Strict On
+﻿'Option Strict On
 Public Class Loan
     Public Property CustomerName As String
     Public Property TypeOfLoan As String
     Public Property NoOfCycle As String
     Property CustAccNo As Integer
-
     Public Property LoanAccNo As String
 
     Private _dblIntAmt As Double
@@ -24,10 +21,9 @@ Public Class Loan
     Private _dblIntRep As Double
     Private _dblProcRep As Double
 
-    'tblCollection
-    Private _intCollTotalPaid As Double
+    Private _dblCollTotalPaid As Double
 
-    Friend Sub AddLoan(strCustAccNo As String, strCustName As String, strDateRelease As String _
+    Public Sub AddLoan(strCustAccNo As String, strCustName As String, strDateRelease As String _
                        , intPrincipal As Integer, intMonthLyRate As Integer, intProcFeeRate As Integer _
                        , intTerms As Integer, strCycleNo As String, strTypeOfLoan As String, strComaker As String _
                        , strCollateral As String)
@@ -40,7 +36,6 @@ Public Class Loan
         _intMonthlyRate = intMonthLyRate
         TypeOfLoan = strTypeOfLoan
         NoOfCycle = strCycleNo
-
 
         _intRate = _intMonthlyRate * (_intTerms \ 4)
         _dblIntAmt = _intPrincipal * (_intRate / 100)
@@ -61,29 +56,111 @@ Public Class Loan
         Try
             cmd1.Connection = conn
             sql1 = "INSERT INTO loan_release VALUES(@loan_acc_no, @cust_id, @date_release, @principal, 
-                  @int_rate, @proc_fee, @terms, @loan_type, @maturity, @co_maker, @collateral)"
+                  @interest_amt, @proc_fee_amt, @terms, @loan_type, @maturity, @co_maker, @collateral, @loan_cycle)"
             cmd1.CommandText = sql1
 
             cmd1.Parameters.AddWithValue("@loan_acc_no", LoanAccNo)
             cmd1.Parameters.AddWithValue("@cust_id", CustAccNo)
             cmd1.Parameters.AddWithValue("@date_release", _dteDateRelease)
             cmd1.Parameters.AddWithValue("@principal", _intPrincipal)
-            cmd1.Parameters.AddWithValue("@int_rate", _intRate)
-            cmd1.Parameters.AddWithValue("@proc_fee", intProcFeeRate)
+            cmd1.Parameters.AddWithValue("@interest_amt", _dblIntAmt)
+            cmd1.Parameters.AddWithValue("@proc_fee_amt", _dblProcFeeAmt)
             cmd1.Parameters.AddWithValue("@terms", _intTerms)
             cmd1.Parameters.AddWithValue("@loan_type", _TypeOfLoan)
             cmd1.Parameters.AddWithValue("@maturity", _dteMaturity)
             cmd1.Parameters.AddWithValue("@co_maker", strComaker)
             cmd1.Parameters.AddWithValue("@collateral", strCollateral)
+            cmd1.Parameters.AddWithValue("@loan_cycle", strCycleNo)
             cmd1.ExecuteNonQuery()
+            cmd1.Parameters.Clear()
 
         Catch ex As Exception
-            MsgBox(ex.Message & "hi")
+            MsgBox(ex.Message)
         Finally
             conn.Close()
         End Try
 
-        Finalize()
+    End Sub
+
+    Public Sub AddPayment(intLoanAccNo As Integer, intCustID As Integer, DatePaid As Date _
+                    , intLoanRep As Integer, intInsurance As Integer, intRefNo As Integer _
+                    , intRetFund As Integer, intSavingsDep As Integer, intSavingsWid As Integer _
+                    , intPenaltyPaid As Integer, intOtherPayment As Integer, strOtherPaymentDesc As String _
+                    , dblPenaltyAddAmt As Double, strPenaltyAddNote As String, strCollBy As String)
+
+        Dim intPrincipal, intNo As Integer
+        Dim dblInterestAmt, dblProcFeeAmt, dblTotalPayment As Double
+
+        'If IsNothing(intLoanRep) = True Then
+        'intLoanRep = 0
+
+        'ElseIf IsNothing(intSavingsDep) = True Then
+        'intSavingsDep = 0
+
+        'ElseIf IsNothing(intRetFund) = True Then
+        'intRetFund = 0
+
+        'ElseIf IsNothing(intInsurance) = True Then
+        'intInsurance = 0
+
+        'ElseIf IsNothing(intPenaltyPaid) = True Then
+        'intPenaltyPaid = 0
+
+        'ElseIf IsNothing(intOtherPayment) = True Then
+        'intOtherPayment = 0
+
+        'End If
+        Try
+
+
+            intPrincipal = intLoanRep / 1.4
+            dblInterestAmt = intPrincipal * 0.36
+            dblProcFeeAmt = intPrincipal * 0.04
+            dblTotalPayment = intLoanRep + intSavingsDep + intRetFund + intInsurance + intPenaltyPaid + intOtherPayment
+
+            intNo = CreatePaymentNo()
+
+            openCon()
+            Try
+                cmd1.Connection = conn
+                sql1 = "INSERT INTO tbl_collections VALUES(@no, @ref_no, @cust_id, @payment_date, @loan_acc_no, @principal_amt,
+                                                    @interest_amt, @proc_fee_amt, @penalty_paid, @savings_dep, @savings_wid,
+                                                    @premium, @ret_fund, @other_payment, @other_payment_desc, @total_payment,
+                                                    @penaltyAddAmt, @penaltyAddNote, @collected_by)"
+                cmd1.CommandText = sql1
+
+                cmd1.Parameters.AddWithValue("@no", intNo)
+                cmd1.Parameters.AddWithValue("@ref_no", intRefNo)
+                cmd1.Parameters.AddWithValue("@cust_id", intCustID)
+                cmd1.Parameters.AddWithValue("@payment_date", DatePaid)
+                cmd1.Parameters.AddWithValue("@loan_acc_no", intLoanAccNo)
+                cmd1.Parameters.AddWithValue("@principal_amt", intPrincipal)
+                cmd1.Parameters.AddWithValue("@interest_amt", dblInterestAmt)
+                cmd1.Parameters.AddWithValue("@proc_fee_amt", dblProcFeeAmt)
+                cmd1.Parameters.AddWithValue("@penalty_paid", intPenaltyPaid)
+                'cmd1.Parameters.AddWithValue("@savings_acc_no", _strSavingsAccNo)
+                cmd1.Parameters.AddWithValue("@savings_dep", intSavingsDep)
+                cmd1.Parameters.AddWithValue("@savings_wid", intSavingsWid)
+                cmd1.Parameters.AddWithValue("@premium", intInsurance)
+                cmd1.Parameters.AddWithValue("@ret_fund", intRetFund)
+                cmd1.Parameters.AddWithValue("@other_payment", intOtherPayment)
+                cmd1.Parameters.AddWithValue("@other_payment_desc", strOtherPaymentDesc)
+                cmd1.Parameters.AddWithValue("@total_payment", dblTotalPayment)
+                cmd1.Parameters.AddWithValue("@penaltyAddAmt", dblPenaltyAddAmt)
+                cmd1.Parameters.AddWithValue("@penaltyAddNote", strPenaltyAddNote)
+                cmd1.Parameters.AddWithValue("@collected_by", strCollBy)
+                cmd1.ExecuteNonQuery()
+                cmd1.Parameters.Clear()
+
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+            End Try
+            MsgBox("Added.")
+            conn.Close()
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
 
     End Sub
 
@@ -92,6 +169,32 @@ Public Class Loan
         strRate = CStr(_intMonthlyRate) & "%/month"
         Return strRate
     End Function
+
+    Public Function CreatePaymentNo()
+        Dim intNo As Integer
+
+        openCon()
+        Try
+            cmd1.Connection = conn
+            sql1 = "SELECT no FROM tbl_collections WHERE no=(SELECT MAX(no) 
+                    FROM tbl_collections)"
+            cmd1.CommandText = sql1
+
+            reader = cmd1.ExecuteReader
+            If (reader.Read()) Then
+                intNo = reader("no") + 1
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+
+        Finally
+            conn.Close()
+        End Try
+
+        Return intNo
+    End Function
+
 
     Public Function CreateLoanID()
         Dim intCustID As Integer
@@ -163,6 +266,7 @@ Public Class Loan
 
         End Get
     End Property
+
     Public Property Interest As Double
         Set(value As Double)
             _dblIntAmt = (value)
@@ -223,56 +327,12 @@ Public Class Loan
         End Get
     End Property
 
-    Public Sub AddCollection(DatePaid As Date, intRefNo As Integer, intLoanRep As Integer, intInsurance As Integer _
-                             , intRetFund As Integer, intSavings As Integer, intPenaltyPaid As Integer _
-                             , intPenaltyAdd As Integer, strCollBy As String)
-
-        _intPrincipal = intLoanRep / 1.4
-        _dblIntAmt = _intPrincipal * 0.36
-        _dblProcRep = _intPrincipal * 0.04
-        _intCollTotalPaid = intLoanRep + _dblIntAmt + _dblProcRep + intInsurance + intRetFund + intSavings + intPenaltyPaid
-        CustAccNo = 12345678
-        LoanAccNo = 1000100
-
-        Try
-            dbconnection()
-            sql = "INSERT INTO tblCollection VALUES(@RefNo, @TotalPaid, @Date, @CustId, @CollectedBy)"
-            cmd = New SqlCommand(sql, con)
-
-            cmd.Parameters.AddWithValue("@RefNo", intRefNo)
-            cmd.Parameters.AddWithValue("@Date", DatePaid)
-            cmd.Parameters.AddWithValue("@CustId", CustAccNo)
-            cmd.Parameters.AddWithValue("@CollectedBy", strCollBy)
-            cmd.Parameters.AddWithValue("@TotalPaid", _intCollTotalPaid)
-            'cmd.ExecuteNonQuery()
-
-            sql = "INSERT INTO tblCollectionLoan VALUES(@RefNo, @LoanAccNo, @PrincipalAmt, @IntAmt, @ProcFee, @PenaltyPaid)"
-            cmd = New SqlCommand(sql, con)
-
-            cmd.Parameters.AddWithValue("@RefNo", intRefNo)
-            cmd.Parameters.AddWithValue("@LoanAccNo", LoanAccNo)
-            cmd.Parameters.AddWithValue("@PrincipalAmt", _intPrincipal)
-            cmd.Parameters.AddWithValue("@IntAmt", _dblIntAmt)
-            cmd.Parameters.AddWithValue("@ProcFee", _dblProcRep)
-            cmd.Parameters.AddWithValue("@PenaltyPaid", intPenaltyPaid)
-            cmd.ExecuteNonQuery()
-
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        Finally
-            Connection_Close()
-
-        End Try
-
-        MsgBox("Payment added successfully!")
-    End Sub
-
     Public Property CollTotalPaid As Double
         Set(value As Double)
-            _intCollTotalPaid = (value)
+            _dblCollTotalPaid = (value)
         End Set
         Get
-            Return _intCollTotalPaid
+            Return _dblCollTotalPaid
 
         End Get
     End Property

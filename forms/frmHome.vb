@@ -52,45 +52,6 @@ Public Class frmHome
             currentButton.BackColor = Color.Indigo
         End If
     End Sub
-    Private Sub pnlDesktop_Paint(sender As Object, e As PaintEventArgs) Handles pnlDesktop.Paint
-
-    End Sub
-
-    Private Sub frmHome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub pnlLogo_Paint(sender As Object, e As PaintEventArgs) Handles pnlLogo.Paint
-
-    End Sub
-
-    Private Sub pnlSideMenu_Paint(sender As Object, e As PaintEventArgs) Handles pnlSideMenu.Paint
-
-    End Sub
-
-    Private Sub pnlCompanyName_Paint(sender As Object, e As PaintEventArgs) Handles pnlCompanyName.Paint
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles lblCompanyName.Click
-
-    End Sub
-
-    Private Sub picFormIcon_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub lblFormTitle_Click(sender As Object, e As EventArgs) Handles lblFormTitle.Click, lblUser.Click, Label1.Click
-
-    End Sub
-
-    Private Sub pnlFormTitle_Paint(sender As Object, e As PaintEventArgs) Handles pnlFormTitle.Paint
-
-    End Sub
-
-    Private Sub pnlMenuContainer_Paint(sender As Object, e As PaintEventArgs) Handles pnlMenuContainer.Paint
-
-    End Sub
 
     Private Sub IconBtnDashboard_Click(sender As Object, e As EventArgs) Handles IconBtnDashboard.Click
         OpenChildForm(New frmDashboard)
@@ -115,14 +76,6 @@ Public Class frmHome
     Private Sub IconBtnAccounting_Click(sender As Object, e As EventArgs) Handles IconBtnAccounting.Click
         OpenChildForm(New frmAccounting)
         ActivateButton(sender)
-    End Sub
-
-    Private Sub pnlUser_Paint(sender As Object, e As PaintEventArgs)
-
-    End Sub
-
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) 
-
     End Sub
 
     Private Sub IconBtnCustomers_Click(sender As Object, e As EventArgs) Handles IconBtnCustomers.Click

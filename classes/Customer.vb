@@ -11,24 +11,24 @@ Public Class Customer
 
         Try
             cmd1.Connection = conn
-            cmd1.CommandText = "INSERT INTO customers VALUES(@CustID, @CustFname, @CustMname, @CustLname,
-                                @CustSname, @CustAdd, @CustContact, @Center, @CustOcc, @CustDOB, @CustDOM,
-                                @CustSpouse, @CustBplace, @CustStatus)"
+            cmd1.CommandText = "INSERT INTO customers VALUES(@id, @firstname, @middlename, @lastname,
+                                @suffixname, @address, @contact, @center, @occupation, @birthdate, @membership_date,
+                                @spouse, @birthplace, @status)"
 
-            cmd1.Parameters.AddWithValue("@CustID", strCustID)
-            cmd1.Parameters.AddWithValue("@CustFname", strCustFname)
-            cmd1.Parameters.AddWithValue("@CustMname", strCustMname)
+            cmd1.Parameters.AddWithValue("@id", strCustID)
+            cmd1.Parameters.AddWithValue("@firstname", strCustFname)
+            cmd1.Parameters.AddWithValue("@middlename", strCustMname)
             cmd1.Parameters.AddWithValue("@CustLname", strCustLname)
-            cmd1.Parameters.AddWithValue("@CustSname", strCustSname)
-            cmd1.Parameters.AddWithValue("@CustAdd", strCustAdd)
-            cmd1.Parameters.AddWithValue("@CustContact", strCustContact)
-            cmd1.Parameters.AddWithValue("@Center", strCustCenter)
-            cmd1.Parameters.AddWithValue("@CustOcc", strCustOcc)
-            cmd1.Parameters.AddWithValue("@CustDOB", strCustDOB)
-            cmd1.Parameters.AddWithValue("@CustDOM", strDOM)
-            cmd1.Parameters.AddWithValue("@CustSpouse", strCustSpouse)
-            cmd1.Parameters.AddWithValue("@CustBplace", strCustBplace)
-            cmd1.Parameters.AddWithValue("@CustStatus", strCustStatus)
+            cmd1.Parameters.AddWithValue("@suffixname", strCustSname)
+            cmd1.Parameters.AddWithValue("@address", strCustAdd)
+            cmd1.Parameters.AddWithValue("@contact", strCustContact)
+            cmd1.Parameters.AddWithValue("@center", strCustCenter)
+            cmd1.Parameters.AddWithValue("@occupation", strCustOcc)
+            cmd1.Parameters.AddWithValue("@birtdate", strCustDOB)
+            cmd1.Parameters.AddWithValue("@membership_date", strDOM)
+            cmd1.Parameters.AddWithValue("@spouse", strCustSpouse)
+            cmd1.Parameters.AddWithValue("@birthplace", strCustBplace)
+            cmd1.Parameters.AddWithValue("@status", strCustStatus)
             cmd1.ExecuteNonQuery()
 
             conn.Close()
@@ -47,12 +47,12 @@ Public Class Customer
         Dim intCustID As Integer
 
         openCon()
-        sql1 = "SELECT CustID FROM customers WHERE CustID=(SELECT MAX(CustID) FROM customers)"
+        sql1 = "SELECT id FROM customers WHERE id=(SELECT MAX(id) FROM customers)"
         cmd1 = New MySql.Data.MySqlClient.MySqlCommand(sql1, conn)
 
         reader = cmd1.ExecuteReader
         If (reader.Read()) Then
-            intCustID = reader("CustID") + 1
+            intCustID = reader("id") + 1
         End If
 
         conn.Close()
@@ -76,7 +76,7 @@ Public Class Customer
         dbconnection()
 
         If (cboCustStat.Text = "All") Then
-            sql = "SELECT * FROM tblCustomers"
+            sql = "SELECT * FROM customers"
         End If
     End Sub
 
@@ -95,23 +95,23 @@ Public Class Customer
         Select Case strCenter
 
             Case "All"
-                strCenter = "SELECT * FROM tblCustomers"
+                strCenter = "SELECT * FROM customers"
             Case "Masalong"
-                strCenter = "SELECT * FROM tblCustomers WHERE Center = 'Masalong'"
+                strCenter = "SELECT * FROM customers WHERE Center = 'Masalong'"
             Case "Calabasa"
-                strCenter = "SELECT * FROM tblCustomers WHERE Center = 'Calabasa'"
+                strCenter = "SELECT * FROM customers WHERE Center = 'Calabasa'"
             Case "Malangcao-Basud"
-                strCenter = "SELECT * FROM tblCustomers WHERE Center = 'Malangcao-Basud'"
+                strCenter = "SELECT * FROM customers WHERE Center = 'Malangcao-Basud'"
             Case "Tigbinan"
-                strCenter = "SELECT * FROM tblCustomers WHERE Center = 'Tigbinan'"
+                strCenter = "SELECT * FROM customers WHERE Center = 'Tigbinan'"
             Case "Guisican"
-                strCenter = "SELECT * FROM tblCustomers WHERE Center = 'Guisican'"
+                strCenter = "SELECT * FROM customers WHERE Center = 'Guisican'"
             Case "Kabungahan"
-                strCenter = "SELECT * FROM tblCustomers WHERE Center = 'Kabungahan'"
+                strCenter = "SELECT * FROM customers WHERE Center = 'Kabungahan'"
             Case "Labo"
-                strCenter = "SELECT * FROM tblCustomers WHERE Center = 'Labo'"
+                strCenter = "SELECT * FROM customers WHERE Center = 'Labo'"
             Case "Pag-asa"
-                strCenter = "SELECT * FROM tblCustomers WHERE Center = 'Pag-asa'"
+                strCenter = "SELECT * FROM customers WHERE Center = 'Pag-asa'"
 
         End Select
 
@@ -138,13 +138,13 @@ Public Class Customer
         Dim intCustID As Integer
 
         dbconnection()
-        sql = "SELECT CustID FROM tblCustomers WHERE CustID=(SELECT MAX(CustID) FROM tblCustomers)"
+        sql = "SELECT id FROM customers WHERE id=(SELECT MAX(id) FROM customers)"
 
         cmd = New SqlClient.SqlCommand(sql, con)
 
         dataReader = cmd.ExecuteReader
         If (dataReader.Read()) Then
-            intCustID = dataReader("CustID") + 1
+            intCustID = dataReader("id") + 1
         End If
 
         Return intCustID
